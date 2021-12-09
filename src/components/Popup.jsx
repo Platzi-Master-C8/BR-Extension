@@ -1,11 +1,11 @@
 import React from 'react'
 
-function App() {
+function Popup() {
   return (
     <h1>
-      Hola Mundo!
+      Hola Popup!
     </h1>
   );
 };
 
-export { App };
+export { Popup };

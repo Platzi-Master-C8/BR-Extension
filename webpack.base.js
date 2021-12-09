@@ -2,10 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    popup: path.resolve(__dirname, "src/index-popup.js"),
+    options: path.resolve(__dirname, "src/index-options.js"),
+    foreground: path.resolve(__dirname, "src/index-foreground.js"),
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: '[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -31,8 +35,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html'
+      template: './public/popup.html',
+      filename: 'popup.html',
+      chunks: ["popup"]
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/options.html',
+      filename: 'options.html',
+      chunks: ["options"]
     }),
   ]
 }
