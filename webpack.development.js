@@ -4,6 +4,18 @@ const base = require('./webpack.base.js');
 
 module.exports = merge(base, {
   mode: 'development',
+  module:{
+    rules: [
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+    ]
+  },
   devServer: {
     static: {
       directory: path.join(__dirname,'dist'),
