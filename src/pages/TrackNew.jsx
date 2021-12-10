@@ -1,12 +1,11 @@
 import React from 'react'
-import { TrackForm } from '../components/TrackForm';
 
 import './styles/TrackNew.scss'
 
-function TrackNew() {
+function TrackNew(props) {
   return (
     <div className="TrackForm__container">
-      <TrackForm />
+      {props.children}
     </div>
   );
 };
