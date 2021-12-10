@@ -3,8 +3,9 @@
 }
 
 .form-group label {
-  display: none;
   position: absolute;
+  font-size: 1.2rem;
+  color: #AE4EFF;
 }
 
 .form-group input {
@@ -15,6 +16,7 @@
   border: none;
   border-bottom: 1px solid #ABA9A9;
   padding-left: 15px;
+  font-size: 1.6rem;
 }
 
 .form-group input::placeholder {
