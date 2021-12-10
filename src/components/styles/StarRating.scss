@@ -1,0 +1,15 @@
+@use '@styles/variables' as g;
+
+.StarRating__star {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+  fill: none;
+  stroke: g.$contrast-color;
+  stroke-width: .4rem;
+}
+
+.StarRating__star.on {
+  stroke:none;
+  fill: g.$contrast-color;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { StarRating } from "./StarRating";
 
 import "./styles/TrackForm.scss";
 
@@ -128,6 +129,8 @@ function TrackForm({ inputValue, setInputValue }) {
             value={inputValue.offeredSalary || ""}
           />
         </div>
+
+        <StarRating />
 
         <div className="form-group">
           {!!showTag.notes && (

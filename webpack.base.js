@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@componentStyles': path.resolve(__dirname, 'src/components/styles/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
       '@images': path.resolve(__dirname, 'src/assets/images/'),
     }
@@ -39,9 +40,8 @@ module.exports = {
       {
         test: /\.svg$/,
         use: [
-          {
-            loader: 'svg-url-loader'
-          }
+          '@svgr/webpack',
+          'svg-url-loader'
         ]
       },
       {
