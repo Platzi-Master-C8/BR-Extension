@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@assets': path.resolve(__dirname, 'src/assets/'),
       '@images': path.resolve(__dirname, 'src/assets/images/'),
     }
   },
@@ -34,6 +35,21 @@ module.exports = {
             loader: 'html-loader'
           }
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader'
+          }
+        ]
+      },
+      {
+        test: /\.woff2?$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        }
       },
     ]
   },

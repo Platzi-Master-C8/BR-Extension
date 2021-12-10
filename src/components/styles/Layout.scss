@@ -1,0 +1,7 @@
+@use '@styles/variables' as g;
+
+.container {
+  width: g.$popup-width;
+  height: 600px;
+  background-color: #fff;
+}
