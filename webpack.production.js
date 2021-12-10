@@ -27,7 +27,9 @@ module.exports = merge(base, {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        { from: "src/manifest.json", to: "[name][ext]" }
+        { from: "src/manifest.json", to: "[name][ext]" },
+        { from: "src/background.js", to: "[name][ext]" },
+        { from: "src/assets/images/*.png", to: "[name][ext]" },
       ]
     }),
     new MiniCssExtractPlugin({
