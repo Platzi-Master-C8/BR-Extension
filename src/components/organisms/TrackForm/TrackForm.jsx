@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./styles/TrackForm.scss";
+import "./TrackForm.scss";
 
 function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});

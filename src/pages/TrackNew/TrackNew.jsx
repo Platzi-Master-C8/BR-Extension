@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles/TrackNew.scss'
+import './TrackNew.scss'
 
 function TrackNew(props) {
   return (

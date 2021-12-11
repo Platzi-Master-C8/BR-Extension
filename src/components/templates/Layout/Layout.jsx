@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles/Layout.scss'
+import './Layout.scss'
 
 function Layout(props) {
   return (

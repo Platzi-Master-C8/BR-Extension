@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Popup } from './components/Popup';
+import { Popup } from './pages/Popup/Popup';
 
 import './styles/global.scss'
 

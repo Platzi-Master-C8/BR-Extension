@@ -1,13 +1,13 @@
 import React from "react";
-import { TrackNew } from "../pages/TrackNew";
-import { TrackForm } from "./TrackForm";
-import { Layout } from "./Layout";
-import { Navbar } from "./Navbar";
-import { StarRating } from "./StarRating";
+import { TrackNew } from "../TrackNew/TrackNew";
+import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
+import { Layout } from "../../components/templates/Layout/Layout";
+import { Navbar } from "../../components/molecules/Navbar/Navbar";
+import { StarRating } from "../../components/molecules/StarRating/StarRating";
 
 function Popup() {
   const [inputValue, setInputValue] = React.useState({});
-  const [rating, setRating] = React.useState('1')
+  const [rating, setRating] = React.useState('3')
 
   return (
     <Layout>

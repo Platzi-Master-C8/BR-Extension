@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Options } from './components/Options';
+import { Options } from './pages/Options/Options';
 
 import './styles/global.scss'
 

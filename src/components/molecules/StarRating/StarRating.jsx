@@ -1,6 +1,6 @@
 import React from "react";
 
-import "@componentStyles/StarRating.scss";
+import "./StarRating.scss";
 import { ReactComponent as Star } from "@images/rating_star.svg";
 
 function StarRating({ rating, setRating }) {
