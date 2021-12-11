@@ -33,3 +33,7 @@
 .form-group input:focus::placeholder {
   color: transparent;
 }
+
+.form-group .large-input {
+  height: 85px;
+}

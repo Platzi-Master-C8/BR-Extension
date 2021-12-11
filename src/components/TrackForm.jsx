@@ -139,7 +139,7 @@ function TrackForm({ inputValue, setInputValue }) {
             </label>
           )}
           <input
-            className="form-control"
+            className="form-control large-input"
             type="text"
             name="notes"
             placeholder="Notes"

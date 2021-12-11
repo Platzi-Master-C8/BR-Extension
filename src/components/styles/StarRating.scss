@@ -1,5 +1,10 @@
 @use '@styles/variables' as g;
 
+.StarRating__container {
+  display: flex;
+  justify-content: center;
+}
+
 .StarRating__star {
   width: 35px;
   height: 35px;
@@ -12,4 +17,14 @@
 .StarRating__star.on {
   stroke:none;
   fill: g.$contrast-color;
+}
+
+.StarRating__container-button {
+  background-color: transparent;
+  border: none;
+  
+}
+
+svg {
+  pointer-events: none;
 }
