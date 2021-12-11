@@ -1,9 +1,8 @@
 import React from "react";
-import { StarRating } from "./StarRating";
 
 import "./styles/TrackForm.scss";
 
-function TrackForm({ inputValue, setInputValue }) {
+function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});
 
   const onChange = (e) => {
@@ -130,7 +129,7 @@ function TrackForm({ inputValue, setInputValue }) {
           />
         </div>
 
-        <StarRating />
+        {children}
 
         <div className="form-group">
           {!!showTag.notes && (
