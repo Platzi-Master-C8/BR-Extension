@@ -22,8 +22,7 @@ function Popup() {
       notes: inputValue.notes,
       user_id: 1,
     };
-    const data = await postVacancy(vacancyToCreate);
-    console.log(data);
+    await postVacancy(vacancyToCreate);
   }
 
   return (
@@ -36,9 +35,9 @@ function Popup() {
           onSubmit={sendFormData}
         >
           <StarRating rating={rating} setRating={setRating} />
-          <button type="submit">send</button>
         </TrackForm>
       </TrackNew>
+      <button type="submit">Send</button>
     </Layout>
   );
 }
