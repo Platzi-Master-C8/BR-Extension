@@ -12,9 +12,11 @@ function Popup() {
   const [rating, setRating] = React.useState('3');
 
   React.useEffect(async () => {
+    const response = await getUrl();
     setInputValue({
-      link: await getUrl(),
-    })
+      ...inputValue,
+      ...response,
+    });
   }, [])
 
   return (

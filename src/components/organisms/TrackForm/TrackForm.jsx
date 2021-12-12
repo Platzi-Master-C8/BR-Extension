@@ -2,18 +2,10 @@ import React from "react";
 
 import "./TrackForm.scss";
 
-function TrackForm({
-  inputValue,
-  setInputValue,
-  children,
-}) {
+function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});
 
   const onChange = (e) => {
-    setShowTag({
-      ...showTag,
-      [e.target.name]: true,
-    });
     const value = e.target.value;
     setInputValue({
       ...inputValue,
@@ -21,25 +13,10 @@ function TrackForm({
     });
   };
 
-  React.useEffect(() => {
-    Array.from(document.getElementsByClassName("form-control"))
-    .map((input) => {
-      if (!!input.value) {
-        setShowTag({
-          ...showTag,
-          [input.name]: true, 
-        });
-      };
-    });
-  }, [inputValue]);
-
   const handleFocus = (e) => {
-    const inputName = e.target.name;
     let bool = false;
 
-    if (!!inputValue[inputName]) {
-      bool = true;
-    } else if (e.nativeEvent.type === "focusin") {
+    if (e.nativeEvent.type === "focusin") {
       bool = true;
     } else {
       bool = false;
@@ -47,7 +24,7 @@ function TrackForm({
 
     setShowTag({
       ...showTag,
-      [inputName]: bool,
+      [e.target.name]: bool,
     });
   };
 
@@ -55,7 +32,7 @@ function TrackForm({
     <div>
       <form>
         <div className="form-group">
-          {!!showTag.company && (
+          {(!!inputValue.company || !!showTag.company) && (
             <label className="form-group__label">Company</label>
           )}
           <input
@@ -71,11 +48,10 @@ function TrackForm({
         </div>
 
         <div className="form-group">
-          {!!showTag.position && (
+          {(!!inputValue.position || !!showTag.position) && (
             <label className="form-group__label">Position</label>
           )}
           <input
-            id="inputCompany"
             className="form-control"
             type="text"
             name="position"
@@ -88,11 +64,10 @@ function TrackForm({
         </div>
 
         <div className="form-group">
-          {!!showTag.link && (
+          {(!!inputValue.link || !!showTag.link) && (
             <label className="form-group__label">Link</label>
           )}
           <input
-            id="inputUrl"
             className="form-control"
             type="text"
             name="link"
@@ -105,7 +80,7 @@ function TrackForm({
         </div>
 
         <div className="form-group">
-          {!!showTag.location && (
+          {(!!inputValue.location || !!showTag.location) && (
             <label className="form-group__label">Location</label>
           )}
           <input
@@ -121,7 +96,8 @@ function TrackForm({
         </div>
 
         <div className="form-group">
-          {!!showTag.offeredSalary && (
+          {(!!inputValue.offeredSalary ||
+            !!showTag.offeredSalary) && (
             <label className="form-group__label">
               Offered Salary
             </label>
@@ -141,7 +117,7 @@ function TrackForm({
         {children}
 
         <div className="form-group">
-          {!!showTag.notes && (
+          {(!!inputValue.notes || !!showTag.notes) && (
             <label className="form-group__label">Notes</label>
           )}
           <input
