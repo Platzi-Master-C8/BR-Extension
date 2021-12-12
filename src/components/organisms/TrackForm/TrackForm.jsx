@@ -36,6 +36,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             <label className="form-group__label">Company</label>
           )}
           <input
+            id="company"
             className="form-control"
             type="text"
             name="company"
@@ -52,6 +53,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             <label className="form-group__label">Position</label>
           )}
           <input
+            id="position"
             className="form-control"
             type="text"
             name="position"
@@ -68,6 +70,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             <label className="form-group__label">Link</label>
           )}
           <input
+            id="link"
             className="form-control"
             type="text"
             name="link"
@@ -84,6 +87,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             <label className="form-group__label">Location</label>
           )}
           <input
+            id="location"
             className="form-control"
             type="text"
             name="location"
@@ -93,6 +97,16 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.location || ""}
           />
+          <div className="form-group__checkbox-container" >
+            <label className="form-group__checkbox">
+              <input
+                type="checkbox"
+                className="input-assumpte"
+                
+              />
+            </label>
+            <span>Remote</span>
+          </div>
         </div>
 
         <div className="form-group">
@@ -103,6 +117,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             </label>
           )}
           <input
+            id="offeredSalary"
             className="form-control"
             type="text"
             name="offeredSalary"
@@ -121,6 +136,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             <label className="form-group__label">Notes</label>
           )}
           <input
+            id="notes"
             className="form-control large-input"
             type="text"
             name="notes"

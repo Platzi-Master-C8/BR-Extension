@@ -1,5 +1,8 @@
+@use '@styles/variables' as g;
+
 .form-group {
   margin-bottom: 10px;
+  display: flex;
 }
 
 .form-group label {
@@ -8,10 +11,10 @@
   color: #AE4EFF;
 }
 
-.form-group input {
+.form-group .form-control {
   width: 306px;
   height: 56px;
-  background: #F8F8F8;
+  background: g.$background-grey;
   border-radius: 4px 4px 0px 0px;
   border: none;
   border-bottom: 1px solid #ABA9A9;
@@ -19,21 +22,50 @@
   font-size: 1.6rem;
 }
 
-.form-group input::placeholder {
+.form-group .form-control::placeholder {
   font-size: 1.6rem;
   color: #373F41;
   ;
 }
 
-.form-group input:focus {
+.form-group .form-control:focus {
   outline: none;
   border-bottom: 2px solid #AE4EFF;
 }
 
-.form-group input:focus::placeholder {
+.form-group .form-control:focus::placeholder {
   color: transparent;
 }
 
 .form-group .large-input {
   height: 85px;
+}
+
+#location {
+  width: 235px;
+}
+
+.form-group__checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  width: calc(306px - 240px);
+}
+
+.form-group__checkbox {
+  background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.form-group__checkbox-container span {
+  position: relative;
+  align-self:flex-end;
+  font-size: 1rem;
 }
