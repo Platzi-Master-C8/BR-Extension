@@ -5,9 +5,17 @@ import { Layout } from "../../components/templates/Layout/Layout";
 import { Navbar } from "../../components/molecules/Navbar/Navbar";
 import { StarRating } from "../../components/molecules/StarRating/StarRating";
 
+import { getUrl } from "@helpers/pageScraping.js";
+
 function Popup() {
   const [inputValue, setInputValue] = React.useState({});
-  const [rating, setRating] = React.useState('3')
+  const [rating, setRating] = React.useState('3');
+
+  React.useEffect(async () => {
+    setInputValue({
+      link: await getUrl(),
+    })
+  }, [])
 
   return (
     <Layout>

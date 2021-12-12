@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
   entry: {
@@ -18,6 +20,7 @@ module.exports = {
       '@componentStyles': path.resolve(__dirname, 'src/components/styles/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
       '@images': path.resolve(__dirname, 'src/assets/images/'),
+      '@helpers': path.resolve(__dirname, 'src/helpers/'),
     }
   },
   module: {
@@ -54,6 +57,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/manifest.json", to: "[name][ext]" },
+        { from: "src/background.js", to: "[name][ext]" },
+        { from: "src/helpers/contentScript.js", to: "[name][ext]" },
+        { from: "src/assets/images/*.png", to: "[name][ext]" },
+      ]
+    }),
     new HtmlWebpackPlugin({
       template: './public/popup.html',
       filename: 'popup.html',
