@@ -2,7 +2,7 @@ import React from "react";
 
 import "./TrackForm.scss";
 
-function TrackForm({ inputValue, setInputValue, children }) {
+function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
 
   const onChange = (e) => {
@@ -10,7 +10,9 @@ function TrackForm({ inputValue, setInputValue, children }) {
       ...showTag,
       [e.target.name]: true,
     });
+
     const value = e.target.value;
+
     setInputValue({
       ...inputValue,
       [e.target.name]: value,
@@ -38,12 +40,10 @@ function TrackForm({ inputValue, setInputValue, children }) {
 
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           {!!showTag.company && (
-            <label className="form-group__label">
-              Company
-            </label>
+            <label className="form-group__label">Company</label>
           )}
           <input
             className="form-control"
@@ -59,9 +59,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
 
         <div className="form-group">
           {!!showTag.position && (
-            <label className="form-group__label">
-              Position
-            </label>
+            <label className="form-group__label">Position</label>
           )}
           <input
             className="form-control"
@@ -76,11 +74,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
         </div>
 
         <div className="form-group">
-          {!!showTag.link && (
-            <label className="form-group__label">
-              Link
-            </label>
-          )}
+          {!!showTag.link && <label className="form-group__label">Link</label>}
           <input
             className="form-control"
             type="text"
@@ -95,9 +89,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
 
         <div className="form-group">
           {!!showTag.location && (
-            <label className="form-group__label">
-              Location
-            </label>
+            <label className="form-group__label">Location</label>
           )}
           <input
             className="form-control"
@@ -113,9 +105,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
 
         <div className="form-group">
           {!!showTag.offeredSalary && (
-            <label className="form-group__label">
-              Offered Salary
-            </label>
+            <label className="form-group__label">Offered Salary</label>
           )}
           <input
             className="form-control"
@@ -133,9 +123,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
 
         <div className="form-group">
           {!!showTag.notes && (
-            <label className="form-group__label">
-              Notes
-            </label>
+            <label className="form-group__label">Notes</label>
           )}
           <input
             className="form-control large-input"
