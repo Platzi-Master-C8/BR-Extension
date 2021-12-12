@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckBox } from "../../atoms/CheckBox/CheckBox";
 
 import "./TrackForm.scss";
 
@@ -97,16 +98,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.location || ""}
           />
-          <div className="form-group__checkbox-container" >
-            <label className="form-group__checkbox">
-              <input
-                type="checkbox"
-                className="input-assumpte"
-                
-              />
-            </label>
-            <span>Remote</span>
-          </div>
+          <CheckBox />
         </div>
 
         <div className="form-group">

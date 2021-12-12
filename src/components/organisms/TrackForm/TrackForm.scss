@@ -44,28 +44,3 @@
 #location {
   width: 235px;
 }
-
-.form-group__checkbox-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 56px;
-  width: calc(306px - 240px);
-}
-
-.form-group__checkbox {
-  background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  margin-bottom: 5px;
-}
-
-.form-group__checkbox-container span {
-  position: relative;
-  align-self:flex-end;
-  font-size: 1rem;
-}
