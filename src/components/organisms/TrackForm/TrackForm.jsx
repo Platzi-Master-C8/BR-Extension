@@ -86,7 +86,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
           />
         </div>
 
-        <div className="form-group">
+        <div id="locationContainer" className="form-group">
           {(!!inputValue.location || !!showTag.location) && (
             <label className="form-group__label">Location</label>
           )}
@@ -111,7 +111,6 @@ function TrackForm({ inputValue, setInputValue, children }) {
               Offered Salary
             </label>
           )}
-          <CurrencyInput />
           <input
             id="offeredSalary"
             className="form-control"
@@ -123,6 +122,9 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.offeredSalary || ""}
           />
+          <div id="currencyInput">
+            <CurrencyInput />
+          </div>
           {/* <Modal>
             <CurrencySelector />
           </Modal> */}

@@ -4,7 +4,6 @@
   width: g.$input-width;
   height: g.$input-height;
   margin-bottom: 10px;
-  display: flex;
 }
 
 .form-group label {
@@ -48,6 +47,18 @@
 }
 
 #salaryContainer {
+  display: grid;
+  grid-template-columns: calc(g.$input-width - 100px) 100px;
+}
+
+#locationContainer {
   display: flex;
-  justify-content: flex-end;
+}
+
+#offeredSalary {
+  grid-column: 1;
+}
+
+#currencyInput {
+  grid-column: 2 / 3;
 }
