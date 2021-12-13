@@ -1,3 +1,5 @@
+@use '@styles/variables' as g;
+
 .checkbox__container {
   display: flex;
   justify-content: center;
@@ -6,18 +8,52 @@
   width: calc(306px - 240px);
 }
 
-.checkbox__container-label {
-  background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
+.checkbox__label {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  height: 56px;
+  width: 56px; 
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.checkbox__label-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: g.$background-grey;
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  margin-bottom: 5px;
 }
 
-.checkbox__container span {
+.checkbox__input {
+  display: none;
+}
+
+.checkbox__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 15%;
+  padding: .15rem;
+  border: none;
+}
+
+.unactive {
+  border: 2px solid rgba(174, 78, 255, 0.85);
+  background: none;
+}
+
+.checkbox__label span {
+  display: block;
+  width: 100%;
+  color: g.$text-main;
+  text-align: center;
   position: relative;
   align-self:flex-end;
   font-size: 1rem;
