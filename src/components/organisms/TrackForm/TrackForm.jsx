@@ -1,5 +1,8 @@
 import React from "react";
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
+import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
+import { Modal } from "Templates/Modal/Modal";
+import { CurrencySelector } from "../CurrencySelector/CurrencySelector";
 
 import "./TrackForm.scss";
 
@@ -101,13 +104,14 @@ function TrackForm({ inputValue, setInputValue, children }) {
           <CheckBox />
         </div>
 
-        <div className="form-group">
+        <div id="salaryContainer" className="form-group">
           {(!!inputValue.offeredSalary ||
             !!showTag.offeredSalary) && (
             <label className="form-group__label">
               Offered Salary
             </label>
           )}
+          <CurrencyInput />
           <input
             id="offeredSalary"
             className="form-control"
@@ -119,6 +123,9 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.offeredSalary || ""}
           />
+          {/* <Modal>
+            <CurrencySelector />
+          </Modal> */}
         </div>
 
         {children}

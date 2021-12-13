@@ -1,6 +1,8 @@
-@use '@styles/variables' as g;
+@use 'Styles/variables' as g;
 
 .form-group {
+  width: g.$input-width;
+  height: g.$input-height;
   margin-bottom: 10px;
   display: flex;
 }
@@ -12,8 +14,8 @@
 }
 
 .form-group .form-control {
-  width: 306px;
-  height: 56px;
+  width: g.$input-width;
+  height: g.$input-height;
   background: g.$background-grey;
   border-radius: 4px 4px 0px 0px;
   border: none;
@@ -43,4 +45,9 @@
 
 #location {
   width: 235px;
+}
+
+#salaryContainer {
+  display: flex;
+  justify-content: flex-end;
 }

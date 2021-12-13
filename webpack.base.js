@@ -16,11 +16,16 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@styles': path.resolve(__dirname, 'src/styles/'),
-      '@componentStyles': path.resolve(__dirname, 'src/components/styles/'),
-      '@assets': path.resolve(__dirname, 'src/assets/'),
-      '@images': path.resolve(__dirname, 'src/assets/images/'),
-      '@helpers': path.resolve(__dirname, 'src/helpers/'),
+      Assets : path.resolve(__dirname, 'src/assets/'),
+      Components: path.resolve(__dirname, 'src/components/'),
+      Helpers : path.resolve(__dirname, 'src/helpers/'),
+      Pages : path.resolve(__dirname, 'src/pages/'),
+      Styles : path.resolve(__dirname, 'src/styles/'),
+      Atoms : path.resolve(__dirname, 'src/components/atoms/'),
+      Molecules : path.resolve(__dirname, 'src/components/molecules/'),
+      Organisms : path.resolve(__dirname, 'src/components/organisms/'),
+      Templates : path.resolve(__dirname, 'src/components/templates/'),
+      Images : path.resolve(__dirname, 'src/assets/images/'),
     }
   },
   module: {

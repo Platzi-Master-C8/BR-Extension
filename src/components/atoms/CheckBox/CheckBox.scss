@@ -1,4 +1,4 @@
-@use '@styles/variables' as g;
+@use 'Styles/variables' as g;
 
 .checkbox__container {
   display: flex;
@@ -12,8 +12,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 56px;
-  width: 56px; 
+  height: g.$input-height;
+  width: g.$input-height;
   flex-direction: column;
   cursor: pointer;
 }
@@ -47,6 +47,10 @@
 .unactive {
   border: 2px solid rgba(174, 78, 255, 0.85);
   background: none;
+}
+
+.checkbox__box:hover {
+  transform: scale(1.1);
 }
 
 .checkbox__label span {

@@ -11,6 +11,11 @@ module.exports = merge(base, {
     clean: true,
   },
   mode: 'production',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   module:{
     rules: [
       {
@@ -33,6 +38,10 @@ module.exports = merge(base, {
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
-    ]
+    ],
+    splitChunks: {
+      minSize: 10000,
+      maxSize: 250000,
+    }
   },
 })

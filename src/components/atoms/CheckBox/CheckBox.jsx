@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./CheckBox.scss";
-import { ReactComponent as Checkmark } from '@images/checkmark.svg'
+import { ReactComponent as Checkmark } from 'Images/checkmark.svg'
 
 function CheckBox() {
   const [remote, setRemote] = React.useState(false)

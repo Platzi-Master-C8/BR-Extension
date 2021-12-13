@@ -5,7 +5,7 @@ import { Layout } from "../../components/templates/Layout/Layout";
 import { Navbar } from "../../components/molecules/Navbar/Navbar";
 import { StarRating } from "../../components/molecules/StarRating/StarRating";
 
-import { getUrl } from "@helpers/pageScraping.js";
+import { getUrl } from "Helpers/pageScraping.js";
 
 function Popup() {
   const [inputValue, setInputValue] = React.useState({});
