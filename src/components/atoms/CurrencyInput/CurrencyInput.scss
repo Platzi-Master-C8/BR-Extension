@@ -16,7 +16,11 @@
 }
 
 .currency__container.open {
-  
+  border: none;
+}
+
+.currency__container.open:hover {
+  transform: scale(1);
 }
 
 .currency__container:hover {
