@@ -6,6 +6,8 @@ import { Navbar } from "../../components/molecules/Navbar/Navbar";
 import { StarRating } from "../../components/molecules/StarRating/StarRating";
 import { postVacancy } from "../../modules/vacancies/vacancy.request";
 
+import { getUrl } from "Helpers/pageScraping.js";
+
 function Popup() {
   const [inputValue, setInputValue] = React.useState({});
   const [rating, setRating] = React.useState("3");
@@ -24,6 +26,14 @@ function Popup() {
     };
     await postVacancy(vacancyToCreate);
   }
+
+  React.useEffect(async () => {
+    const response = await getUrl();
+    setInputValue({
+      ...inputValue,
+      ...response,
+    });
+  }, [])
 
   return (
     <Layout>

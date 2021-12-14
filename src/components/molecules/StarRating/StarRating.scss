@@ -1,4 +1,4 @@
-@use '@styles/variables' as g;
+@use 'Styles/variables' as g;
 
 .StarRating__container {
   display: flex;
@@ -22,7 +22,11 @@
 .StarRating__container-button {
   background-color: transparent;
   border: none;
-  
+  cursor: pointer;
+}
+
+.StarRating__container-button:hover {
+  transform: scale(1.1);
 }
 
 svg {

@@ -1,0 +1,18 @@
+@use 'Styles/variables' as g;
+
+.selector__container {
+  width: 90%;
+  background: transparent;
+  display: flex;
+  justify-items: center;
+  align-items: start;
+  margin: 0 3px 0 3px;
+  background: g.$background-grey;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
