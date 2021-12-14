@@ -1,0 +1,37 @@
+@use 'Styles/variables' as g;
+
+.currencyItem {
+  width: 95;
+  height: g.$input-height / 2;
+  display: flex;
+  justify-content: left;
+  border-bottom: 1px solid #CCC;
+  padding: 15px 0;
+  bottom: 0;
+  right: 0;
+}
+
+.currencyItem__flag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.currencyItem__flag img {
+  width: 30px;
+  height: 22.5px;
+}
+
+.currencyItem__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: g.$text-main;
+}
+
+.currencyItem__title h2 {
+  font-size: 1rem;
+}

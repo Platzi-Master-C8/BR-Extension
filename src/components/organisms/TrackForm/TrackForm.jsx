@@ -8,6 +8,7 @@ import "./TrackForm.scss";
 
 function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});
+  const [openCurrency, setOpenCurrency] = React.useState(false);
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -30,6 +31,11 @@ function TrackForm({ inputValue, setInputValue, children }) {
       ...showTag,
       [e.target.name]: bool,
     });
+  };
+
+  const onCurrencyClick = (e) => {
+    e.preventDefault();
+    setOpenCurrency(!openCurrency);
   };
 
   return (
@@ -123,11 +129,20 @@ function TrackForm({ inputValue, setInputValue, children }) {
             value={inputValue.offeredSalary || ""}
           />
           <div id="currencyInput">
-            <CurrencyInput />
+            <CurrencyInput
+              onCurrencyClick={onCurrencyClick}
+              openCurrency={openCurrency}
+              setOpenCurrency={setOpenCurrency}
+            />
           </div>
-          {/* <Modal>
-            <CurrencySelector />
-          </Modal> */}
+          {/* {!!openCurrency && (
+            <Modal
+              openCurrency={openCurrency}
+              setOpenCurrency={setOpenCurrency}
+            >
+              <CurrencySelector />
+            </Modal>
+          )} */}
         </div>
 
         {children}

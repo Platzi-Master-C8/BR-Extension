@@ -1,21 +1,43 @@
 @use 'Styles/variables' as g;
 
 .currency__container {
-  height: g.$input-height - 5;
   width: 95px;
   position: absolute;
+  height: g.$input-height - 5;
   display: grid;
   grid-template-columns: 30px 65px;
   border: 2px solid #373F4175;
   border-radius: 15%;
-  padding: 3px;
+  padding: 3px 3px 20px 3px;
   margin: 2.5px;
+  background: g.$background-grey;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.currency__container.open {
+  
+}
+
+.currency__container:hover {
+  transform: scale(1.05);
+}
+
+.currency__button {
+  display: none;
+  // position: absolute;
+  // height: g.$input-height - 5;
+  // width: 95px;
+  // background: transparent;
+  // border: None;
+  // cursor: pointer;
 }
 
 .cell__container {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .currency__input-container {
@@ -46,4 +68,9 @@
 .currency__input-arrow {
   height: 10px;
   margin-top: 3px;
+}
+
+.currencySelector__container {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
 }
