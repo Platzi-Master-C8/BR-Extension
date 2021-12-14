@@ -1,13 +1,21 @@
-import React from 'react'
-
+// import ResponsiveAppBar from '../../organisms/AppBar'
 import './Layout.scss'
+
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import React from 'react'
 
 function Layout(props) {
   return (
-    <div className="container">
-      {props.children}
-    </div>
+    <React.Fragment>
+    <CssBaseline />
+    <Container>
+   
+
+       {props.children}
+    </Container>
+    </React.Fragment>
   );
 };
 
-export { Layout };
+export default Layout;

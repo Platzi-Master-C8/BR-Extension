@@ -9,7 +9,7 @@
 }
 
 .form-group input {
-  width: 306px;
+   width: 100%;
   height: 56px;
   background: #F8F8F8;
   border-radius: 4px 4px 0px 0px;
@@ -17,6 +17,9 @@
   border-bottom: 1px solid #ABA9A9;
   padding-left: 15px;
   font-size: 1.6rem;
+  &.location{
+      width:77%;
+  }
 }
 
 .form-group input::placeholder {

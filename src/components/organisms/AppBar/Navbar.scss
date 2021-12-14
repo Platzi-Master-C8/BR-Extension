@@ -18,12 +18,22 @@ header {
 }
 
 .Navbar__title {
-  font-weight: 700;
-  font-size: 2.4rem;
+ color: #000;
+/* New Tracking */
+
+ 
+/* H2 Headline - Mulish  */
+font-family: Mulish;
+font-style: normal;
+font-weight: 600;
+font-size: 21px;
+line-height: 26px;
+
+
 }
 
 .divider {
-  width: 322px;
+  width: 100%;
   height: 9px;
   background: linear-gradient(
     270deg,

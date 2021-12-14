@@ -1,6 +1,11 @@
-import React from "react";
-
 import "./TrackForm.scss";
+import React from "react";
+import SubmitButton from '../../Atoms/Button';
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
+import Checkbox from '@mui/material/Checkbox';
 
 function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});
@@ -37,7 +42,6 @@ function TrackForm({ inputValue, setInputValue, children }) {
   };
 
   return (
-    <div>
       <form>
         <div className="form-group">
           {!!showTag.company && (
@@ -100,7 +104,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             </label>
           )}
           <input
-            className="form-control"
+            className="form-control location"
             type="text"
             name="location"
             placeholder="Location"
@@ -108,8 +112,15 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.location || ""}
+            sx={{width:'75%'}}
           />
-        </div>
+          <FormControlLabel
+                    value="bottom"
+                    control={<Checkbox color="primary" />}
+                    label="¿Remote?"
+                    labelPlacement="bottom"
+                />
+         </div>
 
         <div className="form-group">
           {!!showTag.offeredSalary && (
@@ -118,6 +129,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             </label>
           )}
           <input
+          required
             className="form-control"
             type="text"
             name="offeredSalary"
@@ -138,6 +150,7 @@ function TrackForm({ inputValue, setInputValue, children }) {
             </label>
           )}
           <input
+            required
             className="form-control large-input"
             type="text"
             name="notes"
@@ -148,8 +161,10 @@ function TrackForm({ inputValue, setInputValue, children }) {
             value={inputValue.notes || ""}
           />
         </div>
+        <div className="form-group">
+          <SubmitButton value='Enviar'/>
+        </div>
       </form>
-    </div>
   );
 }
 
