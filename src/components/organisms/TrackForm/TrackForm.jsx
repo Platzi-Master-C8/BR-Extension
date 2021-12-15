@@ -1,16 +1,18 @@
 import React from "react";
+import { CheckBox } from "../../atoms/CheckBox/CheckBox";
+import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
+import { Modal } from "Templates/Modal/Modal";
+import { CurrencySelector } from "../CurrencySelector/CurrencySelector";
 
 import "./TrackForm.scss";
 
-function TrackForm({ inputValue, setInputValue, children }) {
+function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
+  const [openCurrency, setOpenCurrency] = React.useState(false);
 
   const onChange = (e) => {
-    setShowTag({
-      ...showTag,
-      [e.target.name]: true,
-    });
     const value = e.target.value;
+
     setInputValue({
       ...inputValue,
       [e.target.name]: value,
@@ -18,34 +20,34 @@ function TrackForm({ inputValue, setInputValue, children }) {
   };
 
   const handleFocus = (e) => {
-    const inputName = e.target.name;
     let bool = false;
 
-    if (!!inputValue[inputName]) {
-      bool = true;
-    } else if (e.nativeEvent.type === "focusin") {
+    if (e.nativeEvent.type === "focusin") {
       bool = true;
     } else {
       bool = false;
     }
 
-    console.log(bool);
     setShowTag({
       ...showTag,
-      [inputName]: bool,
+      [e.target.name]: bool,
     });
+  };
+
+  const onCurrencyClick = (e) => {
+    e.preventDefault();
+    setOpenCurrency(!openCurrency);
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
-          {!!showTag.company && (
-            <label className="form-group__label">
-              Company
-            </label>
+          {(!!inputValue.company || !!showTag.company) && (
+            <label className="form-group__label">Company</label>
           )}
           <input
+            id="company"
             className="form-control"
             type="text"
             name="company"
@@ -58,12 +60,11 @@ function TrackForm({ inputValue, setInputValue, children }) {
         </div>
 
         <div className="form-group">
-          {!!showTag.position && (
-            <label className="form-group__label">
-              Position
-            </label>
+          {(!!inputValue.position || !!showTag.position) && (
+            <label className="form-group__label">Position</label>
           )}
           <input
+            id="position"
             className="form-control"
             type="text"
             name="position"
@@ -76,12 +77,11 @@ function TrackForm({ inputValue, setInputValue, children }) {
         </div>
 
         <div className="form-group">
-          {!!showTag.link && (
-            <label className="form-group__label">
-              Link
-            </label>
+          {(!!inputValue.link || !!showTag.link) && (
+            <label className="form-group__label">Link</label>
           )}
           <input
+            id="link"
             className="form-control"
             type="text"
             name="link"
@@ -93,13 +93,12 @@ function TrackForm({ inputValue, setInputValue, children }) {
           />
         </div>
 
-        <div className="form-group">
-          {!!showTag.location && (
-            <label className="form-group__label">
-              Location
-            </label>
+        <div id="locationContainer" className="form-group">
+          {(!!inputValue.location || !!showTag.location) && (
+            <label className="form-group__label">Location</label>
           )}
           <input
+            id="location"
             className="form-control"
             type="text"
             name="location"
@@ -109,15 +108,18 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.location || ""}
           />
+          <CheckBox />
         </div>
 
-        <div className="form-group">
-          {!!showTag.offeredSalary && (
+        <div id="salaryContainer" className="form-group">
+          {(!!inputValue.offeredSalary ||
+            !!showTag.offeredSalary) && (
             <label className="form-group__label">
               Offered Salary
             </label>
           )}
           <input
+            id="offeredSalary"
             className="form-control"
             type="text"
             name="offeredSalary"
@@ -127,17 +129,31 @@ function TrackForm({ inputValue, setInputValue, children }) {
             onBlur={handleFocus}
             value={inputValue.offeredSalary || ""}
           />
+          <div id="currencyInput">
+            <CurrencyInput
+              onCurrencyClick={onCurrencyClick}
+              openCurrency={openCurrency}
+              setOpenCurrency={setOpenCurrency}
+            />
+          </div>
+          {/* {!!openCurrency && (
+            <Modal
+              openCurrency={openCurrency}
+              setOpenCurrency={setOpenCurrency}
+            >
+              <CurrencySelector />
+            </Modal>
+          )} */}
         </div>
 
         {children}
 
         <div className="form-group">
-          {!!showTag.notes && (
-            <label className="form-group__label">
-              Notes
-            </label>
+          {(!!inputValue.notes || !!showTag.notes) && (
+            <label className="form-group__label">Notes</label>
           )}
           <input
+            id="notes"
             className="form-control large-input"
             type="text"
             name="notes"

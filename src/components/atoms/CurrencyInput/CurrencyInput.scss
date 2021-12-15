@@ -1,0 +1,80 @@
+@use 'Styles/variables' as g;
+
+.currency__container {
+  width: 95px;
+  position: absolute;
+  height: g.$input-height - 5;
+  display: grid;
+  grid-template-columns: 30px 65px;
+  border: 2px solid #373F4175;
+  border-radius: 15%;
+  padding: 3px 3px 20px 3px;
+  margin: 2.5px;
+  background: g.$background-grey;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.currency__container.open {
+  border: none;
+}
+
+.currency__container.open:hover {
+  transform: scale(1);
+}
+
+.currency__container:hover {
+  transform: scale(1.05);
+}
+
+.currency__button {
+  display: none;
+  // position: absolute;
+  // height: g.$input-height - 5;
+  // width: 95px;
+  // background: transparent;
+  // border: None;
+  // cursor: pointer;
+}
+
+.cell__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.currency__input-container {
+  flex-direction: column;
+  grid-column: 2 / 3;
+  font-size: 2.5rem;
+  margin-top: 5px;
+}
+
+// .currency__input {
+//   height: g.$input-height - 6;
+//   width: 75px;
+//   z-index: 10;
+//   font-size: 1.6rem;
+//   text-align: center;
+//   border: none;
+//   background: transparent;
+//   outline: none;
+// }
+
+.currency__flag-container {
+  z-index: 10;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  margin-left: 5px;
+}
+
+.currency__input-arrow {
+  height: 10px;
+  margin-top: 3px;
+}
+
+.currencySelector__container {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+}
