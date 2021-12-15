@@ -1,11 +1,12 @@
 import "./TrackForm.scss";
+
+import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormGroup from '@mui/material/FormGroup'
+import FormLabel from '@mui/material/FormLabel'
 import React from "react";
 import SubmitButton from '../../Atoms/Button';
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FormControl from '@mui/material/FormControl'
-import FormLabel from '@mui/material/FormLabel'
-import Checkbox from '@mui/material/Checkbox';
 
 function TrackForm({ inputValue, setInputValue, children }) {
   const [showTag, setShowTag] = React.useState({});
