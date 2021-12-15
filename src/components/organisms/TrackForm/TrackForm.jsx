@@ -5,10 +5,15 @@ import { Modal } from "Templates/Modal/Modal";
 import { CurrencySelector } from "../CurrencySelector/CurrencySelector";
 
 import "./TrackForm.scss";
+import flagMX from "Images/mx.svg";
 
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
   const [openCurrency, setOpenCurrency] = React.useState(false);
+  const [selectedCurrency, setSelectedCurrency] = React.useState({
+    code: "MXN",
+    flag: flagMX
+  })
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -134,6 +139,8 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
               onCurrencyClick={onCurrencyClick}
               openCurrency={openCurrency}
               setOpenCurrency={setOpenCurrency}
+              selectedCurrency={selectedCurrency}
+              setSelectedCurrency={setSelectedCurrency}
             />
           </div>
           {/* {!!openCurrency && (

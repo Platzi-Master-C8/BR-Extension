@@ -47,7 +47,7 @@ function Popup() {
           <StarRating rating={rating} setRating={setRating} />
         </TrackForm>
       </TrackNew>
-      <button type="submit">Send</button>
+      {/* <button type="submit">Send</button> */}
     </Layout>
   );
 }
