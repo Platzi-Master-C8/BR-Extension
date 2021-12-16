@@ -20,7 +20,7 @@ function Popup() {
       company: inputValue.company,
       salary: inputValue.offeredSalary,
       date_application: null,
-      interest: 3,
+      interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
     };

@@ -1,19 +1,23 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
 import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
-import { Modal } from "Templates/Modal/Modal";
-import { CurrencySelector } from "../CurrencySelector/CurrencySelector";
 
 import "./TrackForm.scss";
 import flagMX from "Images/mx.svg";
 
-function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
+function TrackForm({
+  inputValue,
+  setInputValue,
+  children,
+  onSubmit,
+}) {
   const [showTag, setShowTag] = React.useState({});
   const [openCurrency, setOpenCurrency] = React.useState(false);
   const [selectedCurrency, setSelectedCurrency] = React.useState({
     code: "MXN",
-    flag: flagMX
-  })
+    flag: flagMX,
+  });
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -23,6 +27,15 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
       [e.target.name]: value,
     });
   };
+
+  const handleSalary = (events) => {
+    const intValue = events.floatValue;
+
+    setInputValue({
+      ...inputValue,
+      "offeredSalary": intValue,
+    })
+  }
 
   const handleFocus = (e) => {
     let bool = false;
@@ -61,6 +74,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.company || ""}
+            autoComplete="off"
           />
         </div>
 
@@ -78,6 +92,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.position || ""}
+            autoComplete="off"
           />
         </div>
 
@@ -95,6 +110,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.link || ""}
+            autoComplete="off"
           />
         </div>
 
@@ -112,6 +128,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.location || ""}
+            autoComplete="off"
           />
           <CheckBox />
         </div>
@@ -123,16 +140,19 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
               Offered Salary
             </label>
           )}
-          <input
+          <NumberFormat
             id="offeredSalary"
             className="form-control"
             type="text"
             name="offeredSalary"
             placeholder="Salary"
-            onChange={onChange}
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.offeredSalary || ""}
+            autoComplete="off"
+            onValueChange={handleSalary}
+            thousandSeparator={true}
+            prefix={"$"}
           />
           <div id="currencyInput">
             <CurrencyInput
@@ -169,6 +189,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             onFocus={handleFocus}
             onBlur={handleFocus}
             value={inputValue.notes || ""}
+            autoComplete="off"
           />
         </div>
       </form>
