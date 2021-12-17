@@ -1,7 +1,7 @@
-import React from 'react'
-import { CurrencyItem } from '../../components/atoms/CurrencyItem/CurrencyItem';
-
 import './Options.scss';
+
+import { CurrencyItem } from '../../components/atoms/CurrencyItem/CurrencyItem';
+import React from 'react'
 import flag from "Images/mx.svg";
 
 function Options() {
@@ -11,7 +11,7 @@ function Options() {
         <CurrencyItem 
           flag={flag}
           country="México"
-          currency="MXN peso"
+          currency="MXN pesos"
         />
       </ul>
     </div>

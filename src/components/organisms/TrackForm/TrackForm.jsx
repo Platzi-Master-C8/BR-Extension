@@ -1,10 +1,9 @@
-import React from "react";
+import "./TrackForm.scss";
+
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
 import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
-import { Modal } from "Templates/Modal/Modal";
-import { CurrencySelector } from "../CurrencySelector/CurrencySelector";
-
-import "./TrackForm.scss";
+import React from "react";
+import SubmitButton from "../../atoms/Button/Button";
 
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
@@ -164,7 +163,10 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             value={inputValue.notes || ""}
           />
         </div>
-      </form>
+        <div className="form-group">
+            <SubmitButton value="Send" />
+          </div>
+        </form>
     </div>
   );
 }
