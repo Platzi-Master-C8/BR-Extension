@@ -1,9 +1,9 @@
 import "./TrackForm.scss";
 
+import SubmitButton from "../../atoms/Button/Button";
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
 import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
 import React from "react";
-import SubmitButton from "../../atoms/Button/Button";
 
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
@@ -39,8 +39,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+       <form onSubmit={onSubmit}>
         <div className="form-group">
           {(!!inputValue.company || !!showTag.company) && (
             <label className="form-group__label">Company</label>
@@ -167,8 +166,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
             <SubmitButton value="Send" />
           </div>
         </form>
-    </div>
-  );
+   );
 }
 
 export { TrackForm };

@@ -1,86 +1,76 @@
+import './NavBar.scss';
+
 import * as React from "react";
 
 import AppBar from "@mui/material/AppBar";
-import AppBarMenu from "../molecules/Menu/Menu"
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Box from '@mui/material/Box';
 import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Logo from "../components/Logo/Logo.jsx";
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import {NavBarMenu} from "../../molecules/Menu/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
+import { Typography } from '@mui/material';
+import gethiredIcon from 'Images/gethired_icon.svg';
 
-const NavBar = (props) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+const ResponsiveNavBar = (props) => {
 
   return (
-    <AppBar
-      position="fixed"
-      color="transparent"
-      elevation="0"
+     <AppBar
+    variant="popup"
       title="Bar"
      >
-      <Container
-        sx={{  
-          display: { xs: "flex" },
-          alignItems: "center"
-        }}
-      >
+  
+      <Container fixed px={0}>
         <Toolbar
           sx={{
+            px:0,
             flexGrow: 1,
             boxShadow: 0,
-            display: { xs: "flex", md: "none" },
-            alignItems: "center"
-          }}
+            display: 'flex',
+            alignItems: "center",
+            }}
         >
           <Box
+         
             sx={{
+              px:0,
               flexGrow: 1,
-              display: { xs: "flex", md: "none" },
+              display:"flex",
               alignItems: "center"
+             
             }}
           >
-          <Logo />
+
+          <img src={gethiredIcon} alt="GetHired Icon" className='logo'/>
+
           <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          sx={{ display: { xs: "flex" } }}
+            
+          component="span"
+          sx={{ textAlign:"center",
+fontStyle:'normal',
+fontWeight: 'bold',
+fontSize:'24px',
+lineHeight:'24px',
+/* identical to box height, or 100% */
+
+letterSpacing:'0.18px',
+
+/* Text Primary */
+
+color: "#2D333A"
+ }}
         >
-props.title
+{props.title}
         </Typography>
           </Box>
- 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-           <AppBarMenu />
-          </Box>
-        </Toolbar>
+<Divider/>
+           <NavBarMenu />
+          </Toolbar>
+          <div className="divider"> 
+          <Box variant="divid"  component="div"/>
+          </div>
       </Container>
     </AppBar>
-  );
+   );
 };
-export {NavBar}
+export {ResponsiveNavBar}
