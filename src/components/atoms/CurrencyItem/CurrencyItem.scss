@@ -39,3 +39,7 @@
 .currencyItem__title h2 {
   font-size: 1rem;
 }
+
+.currencyItem * {
+  pointer-events: none;
+}

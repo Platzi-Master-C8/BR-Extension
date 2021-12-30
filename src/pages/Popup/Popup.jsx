@@ -20,7 +20,7 @@ function Popup() {
       company: inputValue.company,
       salary: inputValue.offeredSalary,
       date_application: null,
-      interest: 3,
+      interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
     };
@@ -47,7 +47,7 @@ function Popup() {
           <StarRating rating={rating} setRating={setRating} />
         </TrackForm>
       </TrackNew>
-      <button type="submit">Send</button>
+      {/* <button type="submit">Send</button> */}
     </Layout>
   );
 }
