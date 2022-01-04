@@ -10,16 +10,13 @@ function SubmitButton(props) {
          <Button 
          fullWidth
              variant="getHiredButton" 
-            endIcon={<SendIcon />}
-                 type="submit"
-                 sx={{
-        
-                }}
-            >{props.value}</Button>
-            </Stack>
-
+             endIcon={<SendIcon />}
+             type="submit"
+             >
+             {props.value}
+         </Button>
+        </Stack>
     );
-            }
- export default SubmitButton
+}
 
- 
+export default SubmitButton
