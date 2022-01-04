@@ -16,12 +16,11 @@ const ResponsiveNavBar = (props) => {
 
   return (
      <AppBar
-    variant="popup"
+      variant="popup"
       title="Bar"
      >
-  
-      <Container fixed px={0}>
-        <Toolbar
+    <Container fixed px={0}>
+      <Toolbar
           sx={{
             px:0,
             flexGrow: 1,
@@ -31,7 +30,6 @@ const ResponsiveNavBar = (props) => {
             }}
         >
           <Box
-         
             sx={{
               px:0,
               flexGrow: 1,
@@ -40,30 +38,22 @@ const ResponsiveNavBar = (props) => {
              
             }}
           >
-
           <img src={gethiredIcon} alt="GetHired Icon" className='logo'/>
-
           <Typography
-            
           component="span"
           sx={{ textAlign:"center",
-fontStyle:'normal',
-fontWeight: 'bold',
-fontSize:'24px',
-lineHeight:'24px',
-/* identical to box height, or 100% */
-
-letterSpacing:'0.18px',
-
-/* Text Primary */
-
-color: "#2D333A"
- }}
-        >
-{props.title}
+                    fontStyle:'normal',
+                    fontWeight: 'bold',
+                    fontSize:'24px',
+                    lineHeight:'24px',
+                    letterSpacing:'0.18px',
+                    color: "#2D333A"
+              }}
+          >
+         {props.title}
         </Typography>
           </Box>
-<Divider/>
+          <Divider/>
            <NavBarMenu />
           </Toolbar>
           <div className="divider"> 
