@@ -1,12 +1,13 @@
-import React from "react";
-import { TrackNew } from "../TrackNew/TrackNew";
-import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
 import { Layout } from "../../components/templates/Layout/Layout";
-import { Navbar } from "../../components/molecules/Navbar/Navbar";
+import React from "react";
+import { ResponsiveNavBar } from "../../components/organisms/Navbar/Navbar";
 import { StarRating } from "../../components/molecules/StarRating/StarRating";
-import { postVacancy } from "../../modules/vacancies/vacancy.request";
-
+import Tooltip from "@mui/material/Tooltip";
+import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
+import { TrackNew } from "../TrackNew/TrackNew";
+import { Typography } from "@mui/material";
 import { getUrl } from "Helpers/pageScraping.js";
+import { postVacancy } from "../../modules/vacancies/vacancy.request";
 
 function Popup() {
   const [inputValue, setInputValue] = React.useState({});
@@ -33,12 +34,12 @@ function Popup() {
       ...inputValue,
       ...response,
     });
-  }, [])
+  }, []);
 
   return (
     <Layout>
-      <Navbar title="New Tracking" />
       <TrackNew>
+        <ResponsiveNavBar title="New Tracking" />
         <TrackForm
           inputValue={inputValue}
           setInputValue={setInputValue}
@@ -47,7 +48,6 @@ function Popup() {
           <StarRating rating={rating} setRating={setRating} />
         </TrackForm>
       </TrackNew>
-      {/* <button type="submit">Send</button> */}
     </Layout>
   );
 }
