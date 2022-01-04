@@ -105,3 +105,6 @@ dist
 .vscode/
 .package-lock.json
 prueba*
+
+#package.json.lock 
+package.json.lock

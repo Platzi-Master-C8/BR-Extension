@@ -1,10 +1,10 @@
-import React from "react";
-import { CurrencyItem } from "Atoms/CurrencyItem/CurrencyItem";
-
 import "./CurrencySelector.scss";
+
+import { CurrencyItem } from "Atoms/CurrencyItem/CurrencyItem";
+import React from "react";
+import flagCO from "Images/co.svg";
 import flagMX from "Images/mx.svg";
 import flagUS from "Images/us.svg";
-import flagCO from "Images/co.svg";
 
 function CurrencySelector() {
   return (
@@ -14,7 +14,7 @@ function CurrencySelector() {
           <CurrencyItem
             flag={flagMX}
             country="México"
-            currency="MXN peso"
+            currency="MXN pesos"
           />
           <CurrencyItem
             flag={flagUS}
@@ -24,7 +24,7 @@ function CurrencySelector() {
           <CurrencyItem
             flag={flagCO}
             country="Colombia"
-            currency="COP peso"
+            currency="COP pesos"
           />
         </ul>
       </section>

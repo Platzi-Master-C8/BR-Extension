@@ -4,4 +4,7 @@
   width: g.$popup-width;
   height: 600px;
   background-color: #fff;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
