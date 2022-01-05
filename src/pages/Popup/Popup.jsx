@@ -38,8 +38,8 @@ function Popup() {
 
   return (
     <Layout>
+      <ResponsiveNavBar title="New Tracking" />
       <TrackNew>
-        <ResponsiveNavBar title="New Tracking" />
         <TrackForm
           inputValue={inputValue}
           setInputValue={setInputValue}

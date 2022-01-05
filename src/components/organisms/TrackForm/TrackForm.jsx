@@ -1,9 +1,12 @@
+import React from "react";
+import NumberFormat from "react-number-format";
+
 import "./TrackForm.scss";
+import flagMX from "Images/mx.svg";
 
 import SubmitButton from "../../atoms/Button/Button";
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
 import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
-import React from "react";
 
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
