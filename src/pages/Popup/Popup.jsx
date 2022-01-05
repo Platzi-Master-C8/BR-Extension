@@ -5,7 +5,7 @@ import { StarRating } from "../../components/molecules/StarRating/StarRating";
 import Tooltip from "@mui/material/Tooltip";
 import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
 import { TrackNew } from "../TrackNew/TrackNew";
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
 import { getUrl } from "Helpers/pageScraping.js";
 import { postVacancy } from "../../modules/vacancies/vacancy.request";
 
@@ -21,7 +21,7 @@ function Popup() {
       company: inputValue.company,
       salary: inputValue.offeredSalary,
       date_application: null,
-      interest: 3,
+      interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
     };
@@ -34,13 +34,12 @@ function Popup() {
       ...inputValue,
       ...response,
     });
-  }, [])
+  }, []);
 
   return (
     <Layout>
-    <TrackNew>
-      <ResponsiveNavBar title="New Tracking" />
-       
+      <TrackNew>
+        <ResponsiveNavBar title="New Tracking" />
         <TrackForm
           inputValue={inputValue}
           setInputValue={setInputValue}

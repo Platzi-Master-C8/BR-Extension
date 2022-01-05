@@ -8,6 +8,10 @@ import React from "react";
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   const [showTag, setShowTag] = React.useState({});
   const [openCurrency, setOpenCurrency] = React.useState(false);
+  const [selectedCurrency, setSelectedCurrency] = React.useState({
+    code: "MXN",
+    flag: flagMX,
+  });
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -15,6 +19,15 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     setInputValue({
       ...inputValue,
       [e.target.name]: value,
+    });
+  };
+
+  const handleSalary = (events) => {
+    const intValue = events.floatValue;
+
+    setInputValue({
+      ...inputValue,
+      offeredSalary: intValue,
     });
   };
 
@@ -39,102 +52,108 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
   };
 
   return (
-       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          {(!!inputValue.company || !!showTag.company) && (
-            <label className="form-group__label">Company</label>
-          )}
-          <input
-            id="company"
-            className="form-control"
-            type="text"
-            name="company"
-            placeholder="Company"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.company || ""}
+    <form onSubmit={onSubmit}>
+      <div className="form-group">
+        {(!!inputValue.company || !!showTag.company) && (
+          <label className="form-group__label">Company</label>
+        )}
+        <input
+          id="company"
+          className="form-control"
+          type="text"
+          name="company"
+          placeholder="Company"
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.company || ""}
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="form-group">
+        {(!!inputValue.position || !!showTag.position) && (
+          <label className="form-group__label">Position</label>
+        )}
+        <input
+          id="position"
+          className="form-control"
+          type="text"
+          name="position"
+          placeholder="Position"
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.position || ""}
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="form-group">
+        {(!!inputValue.link || !!showTag.link) && (
+          <label className="form-group__label">Link</label>
+        )}
+        <input
+          id="link"
+          className="form-control"
+          type="text"
+          name="link"
+          placeholder="Link"
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.link || ""}
+          autoComplete="off"
+        />
+      </div>
+
+      <div id="locationContainer" className="form-group">
+        {(!!inputValue.location || !!showTag.location) && (
+          <label className="form-group__label">Location</label>
+        )}
+        <input
+          id="location"
+          className="form-control"
+          type="text"
+          name="location"
+          placeholder="Location"
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.location || ""}
+          autoComplete="off"
+        />
+        <CheckBox />
+      </div>
+
+      <div id="salaryContainer" className="form-group">
+        {(!!inputValue.offeredSalary || !!showTag.offeredSalary) && (
+          <label className="form-group__label">Offered Salary</label>
+        )}
+        <NumberFormat
+          id="offeredSalary"
+          className="form-control"
+          type="text"
+          name="offeredSalary"
+          placeholder="Salary"
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.offeredSalary || ""}
+          autoComplete="off"
+          onValueChange={handleSalary}
+          thousandSeparator={true}
+          prefix={"$"}
+        />
+        <div id="currencyInput">
+          <CurrencyInput
+            onCurrencyClick={onCurrencyClick}
+            openCurrency={openCurrency}
+            setOpenCurrency={setOpenCurrency}
+            selectedCurrency={selectedCurrency}
+            setSelectedCurrency={setSelectedCurrency}
           />
         </div>
-
-        <div className="form-group">
-          {(!!inputValue.position || !!showTag.position) && (
-            <label className="form-group__label">Position</label>
-          )}
-          <input
-            id="position"
-            className="form-control"
-            type="text"
-            name="position"
-            placeholder="Position"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.position || ""}
-          />
-        </div>
-
-        <div className="form-group">
-          {(!!inputValue.link || !!showTag.link) && (
-            <label className="form-group__label">Link</label>
-          )}
-          <input
-            id="link"
-            className="form-control"
-            type="text"
-            name="link"
-            placeholder="Link"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.link || ""}
-          />
-        </div>
-
-        <div id="locationContainer" className="form-group">
-          {(!!inputValue.location || !!showTag.location) && (
-            <label className="form-group__label">Location</label>
-          )}
-          <input
-            id="location"
-            className="form-control"
-            type="text"
-            name="location"
-            placeholder="Location"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.location || ""}
-          />
-          <CheckBox />
-        </div>
-
-        <div id="salaryContainer" className="form-group">
-          {(!!inputValue.offeredSalary ||
-            !!showTag.offeredSalary) && (
-            <label className="form-group__label">
-              Offered Salary
-            </label>
-          )}
-          <input
-            id="offeredSalary"
-            className="form-control"
-            type="text"
-            name="offeredSalary"
-            placeholder="Salary"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.offeredSalary || ""}
-          />
-          <div id="currencyInput">
-            <CurrencyInput
-              onCurrencyClick={onCurrencyClick}
-              openCurrency={openCurrency}
-              setOpenCurrency={setOpenCurrency}
-            />
-          </div>
-          {/* {!!openCurrency && (
+        {/* {!!openCurrency && (
             <Modal
               openCurrency={openCurrency}
               setOpenCurrency={setOpenCurrency}
@@ -142,31 +161,32 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
               <CurrencySelector />
             </Modal>
           )} */}
-        </div>
+      </div>
 
-        {children}
+      {children}
 
-        <div className="form-group">
-          {(!!inputValue.notes || !!showTag.notes) && (
-            <label className="form-group__label">Notes</label>
-          )}
-          <input
-            id="notes"
-            className="form-control large-input"
-            type="text"
-            name="notes"
-            placeholder="Notes"
-            onChange={onChange}
-            onFocus={handleFocus}
-            onBlur={handleFocus}
-            value={inputValue.notes || ""}
-          />
-        </div>
-        <div className="form-group">
-            <SubmitButton value="Send" />
-          </div>
-        </form>
-   );
+      <div className="form-group">
+        {(!!inputValue.notes || !!showTag.notes) && (
+          <label className="form-group__label">Notes</label>
+        )}
+        <input
+          id="notes"
+          className="form-control large-input"
+          type="text"
+          name="notes"
+          placeholder="Notes"
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
+          value={inputValue.notes || ""}
+          autoComplete="off"
+        />
+      </div>
+      <div className="form-group">
+        <SubmitButton value="Send" />
+      </div>
+    </form>
+  );
 }
 
 export { TrackForm };
