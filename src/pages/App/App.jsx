@@ -16,7 +16,7 @@ const routes = [
 ];
 
 function App() {
-  const [view, setView] = useState(routes[1]);
+  const [view, setView] = useState(routes[0]);
   return <ThemeProvider theme={customTheme}>{view.component}</ThemeProvider>;
 }
 
