@@ -1,15 +1,12 @@
-import { Layout } from "../../components/templates/Layout/Layout";
 import React from "react";
+import { Layout } from "../../components/templates/Layout/Layout";
 import { ResponsiveNavBar } from "../../components/organisms/Navbar/Navbar";
 import { StarRating } from "../../components/molecules/StarRating/StarRating";
-import Tooltip from "@mui/material/Tooltip";
 import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
-import { TrackNew } from "../TrackNew/TrackNew";
-import { Typography } from "@mui/material";
 import { getUrl } from "Helpers/pageScraping.js";
 import { postVacancy } from "../../modules/vacancies/vacancy.request";
 
-function Popup() {
+function TrackNew() {
   const [inputValue, setInputValue] = React.useState({});
   const [rating, setRating] = React.useState("3");
 
@@ -39,7 +36,7 @@ function Popup() {
   return (
     <Layout>
       <ResponsiveNavBar title="New Tracking" />
-      <TrackNew>
+      <div className="TrackForm__container">
         <TrackForm
           inputValue={inputValue}
           setInputValue={setInputValue}
@@ -47,9 +44,9 @@ function Popup() {
         >
           <StarRating rating={rating} setRating={setRating} />
         </TrackForm>
-      </TrackNew>
+      </div>
     </Layout>
   );
 }
 
-export { Popup };
+export { TrackNew };

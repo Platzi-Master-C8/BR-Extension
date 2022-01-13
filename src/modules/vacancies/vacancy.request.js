@@ -48,4 +48,4 @@ async function deleteVacancy(userId, vacantId) {
   return data;
 }
 
-export { postVacancy, getVacancies as getVacancy, deleteVacancy as deleteVacancies };
+export { postVacancy, getVacancies , deleteVacancy  };
