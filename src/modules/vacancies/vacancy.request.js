@@ -1,4 +1,5 @@
 import getAxiosRequest from "../../utils/network/request";
+import SystemException from "../../utils/SystemException";
 
 const buildDeleteURL =(userId, vacantId ) => {
   return `/job-vacancies/${userId}/${vacantId}`
@@ -6,9 +7,9 @@ const buildDeleteURL =(userId, vacantId ) => {
 
 const host = `${process.env.SERVER_HOST}/api`;
 const endPoints = {
-  getVacancies: { url: "/job_vacant", method: "GET" },
-  createVacancy: { url: "/job_vacant", method: "POST" },
-  createVacancy: { url: buildDeleteURL, method: "DELETE" },
+  getVacancies: { url: "/job-vacancies", method: "GET" },
+  createVacancy: { url: "/job-vacancies", method: "POST" },
+  deleteVacancy: { url: buildDeleteURL, method: "DELETE" },
 };
 
 async function postVacancy(vacancy) {
@@ -20,7 +21,7 @@ async function postVacancy(vacancy) {
     data: vacancy
   });
   const { data } = response;
-  if (!data) throw new SystemException("", "error");
+  if (!data) throw SystemException("Error creating vacancy", "error");
   return data;
 }
 
@@ -32,20 +33,20 @@ async function getVacancies() {
     url: `${host}${url}`,
   });
   const { data } = response;
-  if (!data) throw new SystemException("", "error");
-  return data;
+  if (!data) throw SystemException("Error getting vacancies", "error");  
+  return data.job_vacants;
 }
 
 async function deleteVacancy(userId, vacantId) {
   let response = null;
-  const {  url, method } = endPoints.getVacancies;
+  const {  url, method } = endPoints.deleteVacancy;
   response = await getAxiosRequest({
     method,
     url: `${host}${url(userId, vacantId)}`,
   });
   const { data } = response;
-  if (!data) throw new SystemException("", "error");
-  return data;
+  if (!data) throw SystemException("Error deleting vacancy", "error");
+  return true;
 }
 
 export { postVacancy, getVacancies , deleteVacancy  };
