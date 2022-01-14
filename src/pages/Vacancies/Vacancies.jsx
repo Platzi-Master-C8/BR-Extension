@@ -3,6 +3,8 @@ import { Layout } from "../../components/templates/Layout/Layout";
 import { getVacancies } from "../../modules/vacancies/vacancy.request";
 import { ResponsiveNavBar } from "../../components/organisms/Navbar/Navbar";
 import VacancyList from "../../components/organisms/VacancyList/VacancyList";
+import { Typography } from "@mui/material";
+import { MoodBad } from "@mui/icons-material";
 
 function Vacancies() {
   const [vacancies, setVacancies] = useState([]);
@@ -15,7 +17,15 @@ function Vacancies() {
   return (
     <Layout>
       <ResponsiveNavBar title="Vacancies" />
-      <VacancyList vacancies={vacancies} />
+      {vacancies.length > 0 ? (
+        <VacancyList vacancies={vacancies} setVacancies={setVacancies} />
+      ) : (
+        <>
+          <Typography>You don't have vacancies.</Typography>
+          <br />
+          <MoodBad fontSize="large" />
+        </>
+      )}
     </Layout>
   );
 }
