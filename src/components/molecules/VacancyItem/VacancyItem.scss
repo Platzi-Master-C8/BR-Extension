@@ -1,0 +1,38 @@
+$marginIcons : 0.5rem;
+
+.vacancyItem-container {
+    position: relative;
+    height: 75px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    display: flex;
+}
+
+.vacancyItem-content {
+    flex: 1;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap:0.5rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.vacancyItem-status {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: $marginIcons;
+    left:$marginIcons;
+    border-radius: 10px;
+    background-color: #12ff;
+}
+
+.vacancyItem-favorite {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: $marginIcons;
+    right:$marginIcons;
+}

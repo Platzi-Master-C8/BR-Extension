@@ -1,0 +1,11 @@
+@use '../../../styles/variables' as g;
+
+.vacancyList-container {
+  height: 100%;
+  width: g.$popup-width;
+  padding: 1rem 2rem;
+  display:grid;
+  grid-template-rows: max-content;
+  grid-gap: 1.5rem;
+  overflow: auto;
+}

@@ -31,4 +31,4 @@ async function getVacancies() {
   return data;
 }
 
-export { postVacancy, getVacancies as getVacancy };
+export { postVacancy, getVacancies };
