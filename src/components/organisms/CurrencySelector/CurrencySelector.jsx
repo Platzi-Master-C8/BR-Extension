@@ -24,6 +24,8 @@ function CurrencySelector({ setSelectedCurrency }) {
             flag={flagMX}
             country="México"
             currency="MXN pesos"
+            currencyCode="MXN"
+            onClick={handleCurrency}
           />
           <CurrencyItem
             flag={flagUS}
@@ -36,6 +38,8 @@ function CurrencySelector({ setSelectedCurrency }) {
             flag={flagCO}
             country="Colombia"
             currency="COP pesos"
+            currencyCode="COP"
+            onClick={handleCurrency}
           />
         </ul>
       </section>

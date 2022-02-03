@@ -172,7 +172,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
         {(!!inputValue.notes || !!showTag.notes) && (
           <label className="form-group__label">Notes</label>
         )}
-        <input
+        <textarea
           id="notes"
           className="form-control large-input"
           type="text"
