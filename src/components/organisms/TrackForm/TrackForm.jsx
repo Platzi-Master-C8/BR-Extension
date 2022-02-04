@@ -21,7 +21,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
       ...inputValue,
       currency: selectedCurrency.code,
     });
-  }, [selectedCurrency]);
+  },[selectedCurrency]);
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -38,6 +38,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     setInputValue({
       ...inputValue,
       offeredSalary: intValue,
+      currency: selectedCurrency.code,
     });
   };
 
