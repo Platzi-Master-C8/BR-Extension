@@ -16,12 +16,15 @@ function TrackNew() {
       title: inputValue.position,
       link: inputValue.link,
       company: inputValue.company,
-      salary: inputValue.offeredSalary,
-      date_application: null,
+      salary_from: inputValue.offeredSalary,
+      salary_to: inputValue.offeredSalary + 10,
+      currency: inputValue.currency,
+      date_application: "2022-01-10",
       interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
     };
+    console.log(vacancyToCreate);
     await postVacancy(vacancyToCreate);
   }
 

@@ -16,6 +16,13 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     flag: flagMX,
   });
 
+  React.useEffect(() => {
+    setInputValue({
+      ...inputValue,
+      currency: selectedCurrency.code,
+    });
+  }, [selectedCurrency]);
+
   const onChange = (e) => {
     const value = e.target.value;
 
