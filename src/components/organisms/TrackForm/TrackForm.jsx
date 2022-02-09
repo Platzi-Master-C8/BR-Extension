@@ -16,6 +16,13 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     flag: flagMX,
   });
 
+  React.useEffect(() => {
+    setInputValue({
+      ...inputValue,
+      currency: selectedCurrency.code,
+    });
+  },[selectedCurrency]);
+
   const onChange = (e) => {
     const value = e.target.value;
 
@@ -31,6 +38,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     setInputValue({
       ...inputValue,
       offeredSalary: intValue,
+      currency: selectedCurrency.code,
     });
   };
 
@@ -172,7 +180,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
         {(!!inputValue.notes || !!showTag.notes) && (
           <label className="form-group__label">Notes</label>
         )}
-        <input
+        <textarea
           id="notes"
           className="form-control large-input"
           type="text"

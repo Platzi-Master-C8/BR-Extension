@@ -12,6 +12,12 @@
   color: #AE4EFF;
 }
 
+.form-group label:not(.checkbox__label) {
+  width: g.$input-width;
+  background: g.$background-grey;
+  padding-bottom: 2px;
+}
+
 .form-group .form-control {
   width: g.$input-width;
   height: g.$input-height;
@@ -39,10 +45,12 @@
 }
 
 .form-group .large-input {
-  height: 85px;
+  height: 70px;
+  padding-top: 15px;
+  padding-right: 3px;
 }
 
-#location {
+#location, #location label {
   width: 235px;
 }
 

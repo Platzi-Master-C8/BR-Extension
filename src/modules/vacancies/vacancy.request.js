@@ -6,6 +6,7 @@ const buildDeleteURL =(userId, vacantId ) => {
 }
 
 const host = `${process.env.SERVER_HOST}/api`;
+const access_token = `${process.env.ACCESS_TOKEN}`;
 const endPoints = {
   getVacancies: { url: "/job-vacancies", method: "GET" },
   createVacancy: { url: "/job-vacancies", method: "POST" },
@@ -19,7 +20,7 @@ async function postVacancy(vacancy) {
     method,
     url: `${host}${url}`,
     data: vacancy
-  });
+  }, undefined, access_token);
   const { data } = response;
   if (!data) throw SystemException("Error creating vacancy", "error");
   return data;

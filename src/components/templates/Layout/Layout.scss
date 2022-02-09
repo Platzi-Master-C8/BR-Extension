@@ -2,10 +2,11 @@
 
 .container {
   width: g.$popup-width;
-  height: 600px;
+  height: g.$popup-height;
   background-color: #fff;
   display:flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  padding-top: 10px;
 }
