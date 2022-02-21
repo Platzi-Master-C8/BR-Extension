@@ -25,7 +25,10 @@ function TrackNew() {
       user_id: 1,
     };
     console.log(vacancyToCreate);
-    await postVacancy(vacancyToCreate);
+    let result = await postVacancy(vacancyToCreate);
+    if (resulta.data) {
+      handleCreateVacacySuccess();
+    }
   }
 
   React.useEffect(async () => {

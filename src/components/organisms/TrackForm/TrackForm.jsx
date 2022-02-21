@@ -3,6 +3,7 @@ import NumberFormat from "react-number-format";
 
 import "./TrackForm.scss";
 import flagMX from "Images/mx.svg";
+import { useSnackbar } from 'notistack';
 
 import SubmitButton from "../../atoms/Button/Button";
 import { CheckBox } from "../../atoms/CheckBox/CheckBox";
@@ -15,6 +16,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     code: "MXN",
     flag: flagMX,
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   React.useEffect(() => {
     setInputValue({
@@ -62,8 +64,21 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
     setOpenCurrency(!openCurrency);
   };
 
+
+  const handleCreateVacacySuccess = () => {
+    enqueueSnackbar(t('The vacancy  was registered successfully'), {
+      variant: 'success',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right'
+      },
+      TransitionComponent: Zoom
+    });
+
+    //xsetOpen(false);
+  };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={ onSubmit }>
       <div className="form-group">
         {(!!inputValue.company || !!showTag.company) && (
           <label className="form-group__label">Company</label>
