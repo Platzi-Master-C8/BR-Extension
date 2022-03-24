@@ -5,6 +5,7 @@ import { StarRating } from "../../components/molecules/StarRating/StarRating";
 import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
 import { getUrl } from "Helpers/pageScraping.js";
 import { postVacancy } from "../../modules/vacancies/vacancy.request";
+import { validateObj } from "../../utils/validations/inputValidation";
 
 function TrackNew() {
   const [inputValue, setInputValue] = React.useState({});
@@ -23,9 +24,17 @@ function TrackNew() {
       interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
+      remote: true,
+      status: "interviewed"
     };
     console.log(vacancyToCreate);
-    await postVacancy(vacancyToCreate);
+    const validation = validateObj("vacancySchema", vacancyToCreate);
+    if (validation === "ok") {
+      console.log("it's ok");
+    } else {
+      console.log(validation)
+    }
+    // await postVacancy(vacancyToCreate);
   }
 
   React.useEffect(async () => {
