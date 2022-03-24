@@ -134,7 +134,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           value={inputValue.location || ""}
           autoComplete="off"
         />
-        <CheckBox />
+        <CheckBox setInputValue={setInputValue}/>
       </div>
 
       <div id="salaryContainer" className="form-group">

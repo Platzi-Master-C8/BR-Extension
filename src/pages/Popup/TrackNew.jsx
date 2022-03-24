@@ -11,6 +11,8 @@ function TrackNew() {
   const [inputValue, setInputValue] = React.useState({});
   const [rating, setRating] = React.useState("3");
 
+  React.useEffect(() => console.log(inputValue), [inputValue])
+
   async function sendFormData(event) {
     event.preventDefault();
     const vacancyToCreate = {
@@ -20,12 +22,12 @@ function TrackNew() {
       salary_from: inputValue.offeredSalary,
       salary_to: inputValue.offeredSalary + 10,
       currency: inputValue.currency,
-      date_application: "2022-01-10",
+      date_application: new Date().toISOString().slice(0,10),
       interest: parseInt(rating),
       notes: inputValue.notes,
       user_id: 1,
-      remote: true,
-      status: "interviewed"
+      remote: inputValue.remote,
+      status: "interested"
     };
     console.log(vacancyToCreate);
     const validation = validateObj("vacancySchema", vacancyToCreate);

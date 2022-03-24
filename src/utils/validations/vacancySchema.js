@@ -48,7 +48,7 @@ const vacancySchema = {
   },
   status: {
     dataType: "string",
-    pattern: /^(applied)|(interviewed)|(rejected)$/,
+    pattern: /^(interested)|(applied)|(interviewed)|(rejected)$/,
     required: true,
   },
   date_application: {
