@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAuth0 } from '@auth0/auth0-react'
 import "./Options.scss";
 
-import { CurrencyItem } from "../../components/atoms/CurrencyItem/CurrencyItem";
-import flag from "Images/mx.svg";
 
 function Options() {
+  const { loginWithRedirect, isAuthenticated, getAccessTokenSilently, isLoading } = useAuth0()
+
+  useEffect(async () => {
+    // loginWithRedirect({
+    //     screen_hint: 'signup',
+    // });
+  }, [])
+
+  const handleClick = async () => {
+    const token = await getAccessTokenSilently();
+    console.log("🚀 ~ token", token)
+  };
+
   return (
     <div>
-      <ul>
-        <CurrencyItem flag={flag} country="México" currency="MXN pesos" />
-      </ul>
+      <input type="text" />
+      <button onClick={handleClick}>Guardar</button>
+      <button onClick={handleClick2}>Leer</button>
     </div>
   );
 }

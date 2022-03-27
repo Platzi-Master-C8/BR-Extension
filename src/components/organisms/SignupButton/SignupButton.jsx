@@ -6,11 +6,15 @@ const SignupButton = () => {
   return (
     <button
       className="btn btn-primary btn-block"
-      onClick={() =>
-        loginWithRedirect({
-          screen_hint: 'signup',
+      onClick={() => {
+        // const redirectUrl = chrome.identity.getRedirectURL('auth0');
+        chrome.tabs.create({
+          url: `${window.location.origin}/options.html`,
         })
-      }
+        // loginWithRedirect({
+        //   screen_hint: 'signup',
+        // })
+      }}
     >
       Sign Up
     </button>

@@ -13,7 +13,7 @@
     }
   ],
   "options_page": "./options.html",
-  "permissions": ["storage", "activeTab", "scripting", "tabs", "contextMenus"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "contextMenus", "identity"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
