@@ -1,17 +1,20 @@
-import React from "react";
-import { Layout } from "../../components/templates/Layout/Layout";
-import { ResponsiveNavBar } from "../../components/organisms/Navbar/Navbar";
-import { StarRating } from "../../components/molecules/StarRating/StarRating";
-import { TrackForm } from "../../components/organisms/TrackForm/TrackForm";
-import { getUrl } from "Helpers/pageScraping.js";
-import { postVacancy } from "../../modules/vacancies/vacancy.request";
+
+import React from 'react'
+import { Layout } from '../../components/templates/Layout/Layout'
+import { ResponsiveNavBar } from '../../components/organisms/Navbar/Navbar'
+import { StarRating } from '../../components/molecules/StarRating/StarRating'
+import { TrackForm } from '../../components/organisms/TrackForm/TrackForm'
+import { getUrl } from 'Helpers/pageScraping.js'
+import { postVacancy } from '../../modules/vacancies/vacancy.request'
+import { useAuth0 } from '@auth0/auth0-react'
 import { validateObj } from "../../utils/validations/inputValidation";
 
-function TrackNew() {
-  const [inputValue, setInputValue] = React.useState({});
-  const [rating, setRating] = React.useState("3");
 
-  React.useEffect(() => console.log(inputValue), [inputValue])
+function TrackNew() {
+	const [inputValue, setInputValue] = React.useState({})
+	const [rating, setRating] = React.useState('3')
+	const { getAccessTokenSilently } = useAuth0()
+
 
   async function sendFormData(event) {
     event.preventDefault();
@@ -32,35 +35,37 @@ function TrackNew() {
     console.log(vacancyToCreate);
     const validation = validateObj("vacancySchema", vacancyToCreate);
     if (validation === "ok") {
-      console.log("it's ok");
+      const token = await getAccessTokenSilently()
+      let result = await postVacancy(vacancyToCreate, token)
+      if (resulta.data) {
+        handleCreateVacacySuccess()
+      }
     } else {
       console.log(validation)
     }
-    // await postVacancy(vacancyToCreate);
   }
 
-  React.useEffect(async () => {
-    const response = await getUrl();
-    setInputValue({
-      ...inputValue,
-      ...response,
-    });
-  }, []);
+	React.useEffect(async () => {
+		const response = await getUrl()
+		setInputValue({
+			...inputValue,
+			...response,
+		})
+	}, [])
 
-  return (
-    <Layout>
-      <ResponsiveNavBar title="New Tracking" />
-      <div className="TrackForm__container">
-        <TrackForm
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          onSubmit={sendFormData}
-        >
-          <StarRating rating={rating} setRating={setRating} />
-        </TrackForm>
-      </div>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<ResponsiveNavBar title='New Tracking' />
+			<div className='TrackForm__container'>
+				<TrackForm
+					inputValue={inputValue}
+					setInputValue={setInputValue}
+					onSubmit={sendFormData}>
+					<StarRating rating={rating} setRating={setRating} />
+				</TrackForm>
+			</div>
+		</Layout>
+	)
 }
 
-export { TrackNew };
+export { TrackNew }

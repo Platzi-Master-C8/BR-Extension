@@ -6,21 +6,20 @@ const buildDeleteURL =(userId, vacantId ) => {
 }
 
 const host = `${process.env.SERVER_HOST}/api`;
-const access_token = `${process.env.ACCESS_TOKEN}`;
 const endPoints = {
   getVacancies: { url: "/job-vacancies", method: "GET" },
   createVacancy: { url: "/job-vacancies", method: "POST" },
   deleteVacancy: { url: buildDeleteURL, method: "DELETE" },
 };
 
-async function postVacancy(vacancy) {
+async function postVacancy(vacancy, token) {
   let response = null;
   const { url, method } = endPoints.createVacancy;
   response = await getAxiosRequest({
     method,
     url: `${host}${url}`,
     data: vacancy
-  }, undefined, access_token);
+  }, undefined, token);
   const { data } = response;
   if (!data) throw SystemException("Error creating vacancy", "error");
   return data;

@@ -1,67 +1,80 @@
-import React from "react";
-import NumberFormat from "react-number-format";
+import React from 'react'
+import NumberFormat from 'react-number-format'
 
-import "./TrackForm.scss";
-import flagMX from "Images/mx.svg";
+import './TrackForm.scss'
+import flagMX from 'Images/mx.svg'
+import { useSnackbar } from 'notistack'
 
-import SubmitButton from "../../atoms/Button/Button";
-import { CheckBox } from "../../atoms/CheckBox/CheckBox";
-import { CurrencyInput } from "../../atoms/CurrencyInput/CurrencyInput";
+import SubmitButton from '../../atoms/Button/Button'
+import { CheckBox } from '../../atoms/CheckBox/CheckBox'
+import { CurrencyInput } from '../../atoms/CurrencyInput/CurrencyInput'
 
 function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
-  const [showTag, setShowTag] = React.useState({});
-  const [openCurrency, setOpenCurrency] = React.useState(false);
+  const [showTag, setShowTag] = React.useState({})
+  const [openCurrency, setOpenCurrency] = React.useState(false)
   const [selectedCurrency, setSelectedCurrency] = React.useState({
-    code: "MXN",
+    code: 'MXN',
     flag: flagMX,
-  });
-
+  })
+  // const { enqueueSnackbar } = useSnackbar();
   React.useEffect(() => {
     setInputValue({
       ...inputValue,
       currency: selectedCurrency.code,
-    });
-  },[selectedCurrency]);
+    })
+  }, [selectedCurrency])
 
   const onChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value
 
     setInputValue({
       ...inputValue,
       [e.target.name]: value,
-    });
-  };
+    })
+  }
 
   const handleSalary = (events) => {
-    const intValue = events.floatValue;
+    const intValue = events.floatValue
 
     setInputValue({
       ...inputValue,
       offeredSalary: intValue,
       currency: selectedCurrency.code,
-    });
-  };
+    })
+  }
 
   const handleFocus = (e) => {
-    let bool = false;
+    let bool = false
 
-    if (e.nativeEvent.type === "focusin") {
-      bool = true;
+    if (e.nativeEvent.type === 'focusin') {
+      bool = true
     } else {
-      bool = false;
+      bool = false
     }
 
     setShowTag({
       ...showTag,
       [e.target.name]: bool,
-    });
-  };
+    })
+  }
 
   const onCurrencyClick = (e) => {
-    e.preventDefault();
-    setOpenCurrency(!openCurrency);
-  };
+    e.preventDefault()
+    setOpenCurrency(!openCurrency)
+  }
 
+  const handleCreateVacacySuccess = () => {
+    enqueueSnackbar(t('The vacancy  was registered successfully'), {
+      variant: 'success',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      },
+      TransitionComponent: Zoom,
+    })
+
+    //xsetOpen(false);
+  }
   return (
     <form onSubmit={onSubmit}>
       <div className="form-group">
@@ -77,7 +90,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.company || ""}
+          value={inputValue.company || ''}
           autoComplete="off"
         />
       </div>
@@ -95,7 +108,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.position || ""}
+          value={inputValue.position || ''}
           autoComplete="off"
         />
       </div>
@@ -113,7 +126,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.link || ""}
+          value={inputValue.link || ''}
           autoComplete="off"
         />
       </div>
@@ -131,7 +144,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.location || ""}
+          value={inputValue.location || ''}
           autoComplete="off"
         />
         <CheckBox setInputValue={setInputValue}/>
@@ -149,11 +162,11 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           placeholder="Salary"
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.offeredSalary || ""}
+          value={inputValue.offeredSalary || ''}
           autoComplete="off"
           onValueChange={handleSalary}
           thousandSeparator={true}
-          prefix={"$"}
+          prefix={'$'}
         />
         <div id="currencyInput">
           <CurrencyInput
@@ -189,7 +202,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
           onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleFocus}
-          value={inputValue.notes || ""}
+          value={inputValue.notes || ''}
           autoComplete="off"
         />
       </div>
@@ -197,7 +210,7 @@ function TrackForm({ inputValue, setInputValue, children, onSubmit }) {
         <SubmitButton value="Send" />
       </div>
     </form>
-  );
+  )
 }
 
-export { TrackForm };
+export { TrackForm }

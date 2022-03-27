@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.4",
@@ -23,6 +24,7 @@
     "copy-webpack-plugin": "^10.0.0",
     "dotenv": "^10.0.0",
     "joi": "^17.6.0",
+    "notistack": "^2.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.8.0"
