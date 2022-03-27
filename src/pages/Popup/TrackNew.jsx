@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Layout } from '../../components/templates/Layout/Layout'
 import { ResponsiveNavBar } from '../../components/organisms/Navbar/Navbar'
@@ -6,33 +7,43 @@ import { TrackForm } from '../../components/organisms/TrackForm/TrackForm'
 import { getUrl } from 'Helpers/pageScraping.js'
 import { postVacancy } from '../../modules/vacancies/vacancy.request'
 import { useAuth0 } from '@auth0/auth0-react'
+import { validateObj } from "../../utils/validations/inputValidation";
+
 
 function TrackNew() {
 	const [inputValue, setInputValue] = React.useState({})
 	const [rating, setRating] = React.useState('3')
 	const { getAccessTokenSilently } = useAuth0()
 
-	async function sendFormData(event) {
-		event.preventDefault()
-		const vacancyToCreate = {
-			title: inputValue.position,
-			link: inputValue.link,
-			company: inputValue.company,
-			salary_from: inputValue.offeredSalary,
-			salary_to: inputValue.offeredSalary + 10,
-			currency: inputValue.currency,
-			date_application: '2022-01-10',
-			interest: parseInt(rating),
-			notes: inputValue.notes,
-			user_id: 1,
-		}
-		console.log(vacancyToCreate)
-		const token = await getAccessTokenSilently()
-		let result = await postVacancy(vacancyToCreate, token)
-		if (resulta.data) {
-			handleCreateVacacySuccess()
-		}
-	}
+
+  async function sendFormData(event) {
+    event.preventDefault();
+    const vacancyToCreate = {
+      title: inputValue.position,
+      link: inputValue.link,
+      company: inputValue.company,
+      salary_from: inputValue.offeredSalary,
+      salary_to: inputValue.offeredSalary + 10,
+      currency: inputValue.currency,
+      date_application: new Date().toISOString().slice(0,10),
+      interest: parseInt(rating),
+      notes: inputValue.notes,
+      user_id: 1,
+      remote: inputValue.remote,
+      status: "interested"
+    };
+    console.log(vacancyToCreate);
+    const validation = validateObj("vacancySchema", vacancyToCreate);
+    if (validation === "ok") {
+      const token = await getAccessTokenSilently()
+      let result = await postVacancy(vacancyToCreate, token)
+      if (resulta.data) {
+        handleCreateVacacySuccess()
+      }
+    } else {
+      console.log(validation)
+    }
+  }
 
 	React.useEffect(async () => {
 		const response = await getUrl()

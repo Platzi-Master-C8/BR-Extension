@@ -3,12 +3,13 @@ import React from "react";
 import "./CheckBox.scss";
 import { ReactComponent as Checkmark } from 'Images/checkmark.svg'
 
-function CheckBox() {
+function CheckBox({ setInputValue }) {
   const [remote, setRemote] = React.useState(false)
 
-  // useEffect(() => {
+  React.useEffect(() => {
+    setInputValue(prev => ({ ...prev, remote: remote}))
+  }, [remote]);
 
-  // }, []);
   const onChange = () => {
     setRemote(!remote);
   }
