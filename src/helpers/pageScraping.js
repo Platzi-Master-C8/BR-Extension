@@ -5,7 +5,7 @@ async function getUrl() {
   const position = await getPosition(tabs[0])
   return {
     link: url,
-    position: position,
+    position: position.trim(),
   }
 }
 
