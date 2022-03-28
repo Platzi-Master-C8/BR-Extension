@@ -17,7 +17,6 @@ function TrackNew() {
 	const [open, setOpen] = useState(false)
 
 	async function sendFormData(event) {
-		console.log(inputValue.remote)
 		event.preventDefault()
 		const vacancyToCreate = {
 			title: inputValue.position,
@@ -63,7 +62,6 @@ function TrackNew() {
 		try {
 			if (validation === 'ok') {
 				const token = await getAccessTokenSilently()
-				console.log('token', token)
 				let result = await postVacancy(vacancyToCreate, token)
 				if (result) {
 					activeAlert(
