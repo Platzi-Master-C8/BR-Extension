@@ -8,6 +8,7 @@ import { postVacancy } from '../../modules/vacancies/vacancy.request'
 import { useAuth0 } from '@auth0/auth0-react'
 import { validateObj } from '../../utils/validations/inputValidation'
 import CustomizedSnackbars from '../../components/organisms/CustomSnackbar/CustomSnackbar'
+import { CircularProgress } from '@mui/material'
 
 function TrackNew() {
 	const [inputValue, setInputValue] = useState({})
@@ -60,13 +61,13 @@ function TrackNew() {
 	}, [])
 
 	const setVacancy = async (validation, vacancyToCreate) => {
-		setLoading(true)
 		try {
+			setLoading(true)
 			if (validation === 'ok') {
 				// const token = await getAccessTokenSilently()
 				const token = localStorage.getItem('token')
 				let result = await postVacancy(vacancyToCreate, token)
-				if (esponse.code === 201) {
+				if (result.code === 201) {
 					activeAlert(
 						'The vacancy  was registered successfully',
 						'success'

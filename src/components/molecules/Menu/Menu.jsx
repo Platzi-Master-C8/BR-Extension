@@ -16,8 +16,6 @@ function NavBarMenu() {
 	const [anchorElUser, setAnchorElUser] = React.useState(null)
 	const { isAuthenticated, user: currentUser } = useAuth0()
 
-	console.log(isAuthenticated)
-	console.log(currentUser)
 	const user = {
 		name: currentUser ? currentUser.name : '',
 		avatar: currentUser ? currentUser.picture : '',

@@ -59,8 +59,6 @@ function App() {
 		}
 	}, [token])
 
-	console.log('isAuthenticated', isAuthenticated)
-
 	return <ThemeProvider theme={customTheme}>{view.component}</ThemeProvider>
 }
 
