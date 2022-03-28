@@ -24,7 +24,7 @@ function App() {
 
 	const getToken = async () => {
 		try {
-      console.log("trying to get AccessTokenSliently")
+			console.log('trying to get AccessTokenSliently')
 			const token = await getAccessTokenSilently()
 			console.log('token', token)
 			setToken(token)
@@ -40,8 +40,6 @@ function App() {
 	useEffect(() => {
 		setAuthenticated(isAuthenticated)
 	}, [isAuthenticated])
-
-	console.log('isAuthenticated', isAuthenticated)
 
 	return (
 		<ThemeProvider theme={customTheme}>
