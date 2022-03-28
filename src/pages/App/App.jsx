@@ -43,7 +43,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={customTheme}>
-			{authenticated ? view.component : <SignupButton />}
+			{!authenticated ? view.component : <SignupButton />}
 		</ThemeProvider>
 	)
 }
