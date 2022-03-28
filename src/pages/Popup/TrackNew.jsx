@@ -15,6 +15,7 @@ function TrackNew() {
 	const { getAccessTokenSilently } = useAuth0()
 	const [alert, setAlert] = useState({ message: '', type: 'error' })
 	const [open, setOpen] = useState(false)
+	const [loading, setLoading] = useState(false)
 
 	async function sendFormData(event) {
 		event.preventDefault()
@@ -59,11 +60,13 @@ function TrackNew() {
 	}, [])
 
 	const setVacancy = async (validation, vacancyToCreate) => {
+		setLoading(true)
 		try {
 			if (validation === 'ok') {
-				const token = await getAccessTokenSilently()
+				// const token = await getAccessTokenSilently()
+				const token = localStorage.getItem('token')
 				let result = await postVacancy(vacancyToCreate, token)
-				if (result) {
+				if (esponse.code === 201) {
 					activeAlert(
 						'The vacancy  was registered successfully',
 						'success'
@@ -72,28 +75,40 @@ function TrackNew() {
 			} else {
 				ShowValidationErrors(validation)
 			}
+			setLoading(false)
 		} catch (error) {
 			activeAlert(error, 'error')
+			setLoading(false)
 		}
 	}
 
 	return (
 		<Layout>
 			<ResponsiveNavBar title='New Tracking' />
-			<div className='TrackForm__container'>
-				<TrackForm
-					inputValue={inputValue}
-					setInputValue={setInputValue}
-					onSubmit={sendFormData}>
-					<StarRating rating={rating} setRating={setRating} />
-				</TrackForm>
-				<CustomizedSnackbars
-					type={alert.type}
-					message={alert.message}
-					status={open}
-					resetOpen={setOpen}
-				/>
-			</div>
+			{!!loading ? (
+				<div className='TrackForm__loading-container'>
+					<CircularProgress
+						size={'55px'}
+						className='loading-animation'
+						color='secondary'
+					/>
+				</div>
+			) : (
+				<div className='TrackForm__container'>
+					<TrackForm
+						inputValue={inputValue}
+						setInputValue={setInputValue}
+						onSubmit={sendFormData}>
+						<StarRating rating={rating} setRating={setRating} />
+					</TrackForm>
+				</div>
+			)}
+			<CustomizedSnackbars
+				type={alert.type}
+				message={alert.message}
+				status={open}
+				resetOpen={setOpen}
+			/>
 		</Layout>
 	)
 }
