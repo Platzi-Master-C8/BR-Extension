@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Navbar.scss'
-import gethiredIcon from '@images/gethired_icon.svg';
+import gethiredIcon from 'Images/gethired_icon.svg';
 
 function Navbar(props) {
   return (

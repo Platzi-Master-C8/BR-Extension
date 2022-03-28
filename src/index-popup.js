@@ -1,10 +1,13 @@
+import './styles/global.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Popup } from './pages/Popup/Popup';
-
-import './styles/global.scss'
+import { App } from './pages/App/App';
+import Auth0ProviderWithHistory from './components/atoms/auth0Provider'
 
 ReactDOM.render(
-  <Popup />,
-  document.getElementById('popup')
-)
+   <Auth0ProviderWithHistory>
+      <App />
+   </Auth0ProviderWithHistory>,
+   document.getElementById('app')
+);
+ 

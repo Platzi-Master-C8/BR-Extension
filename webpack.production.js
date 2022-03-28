@@ -3,7 +3,6 @@ const { merge } = require('webpack-merge');
 const base = require('./webpack.base.js');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(base, {
@@ -12,6 +11,11 @@ module.exports = merge(base, {
     clean: true,
   },
   mode: 'production',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   module:{
     rules: [
       {
@@ -25,13 +29,6 @@ module.exports = merge(base, {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "src/manifest.json", to: "[name][ext]" },
-        { from: "src/background.js", to: "[name][ext]" },
-        { from: "src/assets/images/*.png", to: "[name][ext]" },
-      ]
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
@@ -41,6 +38,10 @@ module.exports = merge(base, {
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
-    ]
+    ],
+    splitChunks: {
+      minSize: 10000,
+      maxSize: 250000,
+    }
   },
 })

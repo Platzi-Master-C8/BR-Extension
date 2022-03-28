@@ -1,4 +1,8 @@
+@use 'Styles/variables' as g;
+
 .form-group {
+  width: g.$input-width;
+  height: g.$input-height;
   margin-bottom: 10px;
 }
 
@@ -8,32 +12,61 @@
   color: #AE4EFF;
 }
 
-.form-group input {
-  width: 306px;
-  height: 56px;
-  background: #F8F8F8;
+.form-group label:not(.checkbox__label) {
+  width: g.$input-width;
+  background: g.$background-grey;
+  padding-bottom: 2px;
+}
+
+.form-group .form-control {
+  width: g.$input-width;
+  height: g.$input-height;
+  background: g.$background-grey;
   border-radius: 4px 4px 0px 0px;
   border: none;
   border-bottom: 1px solid #ABA9A9;
-  padding-left: 15px;
+  padding: 5px 0 0 15px;
   font-size: 1.6rem;
 }
 
-.form-group input::placeholder {
+.form-group .form-control::placeholder {
   font-size: 1.6rem;
   color: #373F41;
   ;
 }
 
-.form-group input:focus {
+.form-group .form-control:focus {
   outline: none;
   border-bottom: 2px solid #AE4EFF;
 }
 
-.form-group input:focus::placeholder {
+.form-group .form-control:focus::placeholder {
   color: transparent;
 }
 
 .form-group .large-input {
-  height: 85px;
+  height: 70px;
+  padding-top: 15px;
+  padding-right: 3px;
+}
+
+#location, #location label {
+  width: 235px;
+}
+
+#salaryContainer {
+  display: grid;
+  grid-template-columns: calc(g.$input-width - 100px) 100px;
+}
+
+#locationContainer {
+  display: flex;
+}
+
+#offeredSalary {
+  grid-column: 1;
+}
+
+#currencyInput {
+  grid-column: 2 / 3;
 }

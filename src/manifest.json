@@ -1,19 +1,19 @@
 {
   "name": "GetHired Extension",
   "description": "The best job tracking extension ever!",
-  "version": "0.1",
+  "version": "0.2",
   "manifest_version": 3,
   "background": {
     "service_worker": "./background.js"
   },
-  "options_page": "./options.html",
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "tabs",
-    "contextMenus"
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./contentScript.js"]
+    }
   ],
+  "options_page": "./options.html",
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "contextMenus", "identity"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

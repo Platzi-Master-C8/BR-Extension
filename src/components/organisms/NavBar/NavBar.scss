@@ -1,0 +1,32 @@
+.Navbar{
+    width:100%;
+    max-width:325px;
+}
+
+.logo{
+    width: 100%;
+    max-width: 40px;
+    height:auto;
+    max-height: 40px;
+}
+
+.css-1ss2ei0-MuiContainer-root, .css-1ru8v2m-MuiToolbar-root{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+.divider {
+    width: 322px;
+    height: 9px;
+    background: linear-gradient(
+      270deg,
+      rgba(95, 100, 255, 0.71) 0%,
+      rgba(174, 78, 255, 0.85) 100%
+    );
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+  

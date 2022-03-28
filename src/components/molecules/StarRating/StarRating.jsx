@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./StarRating.scss";
-import { ReactComponent as Star } from "@images/rating_star.svg";
+import { ReactComponent as Star } from "Images/rating_star.svg";
 
 function StarRating({ rating, setRating }) {
 
