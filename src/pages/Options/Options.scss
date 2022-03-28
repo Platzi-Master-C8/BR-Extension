@@ -1,7 +1,15 @@
 @use 'Styles/variables' as g;
 
-ul {
-  margin: 0;
-  padding: 0 0 56px 0;
-  list-style: none;
+.OptionsPage {
+  font-size: 2rem;
+  padding: 30px;
+  input {
+    padding-left: 20px;
+    width: 200px;
+    height: 80px;
+  }
+  button {
+    width: 200px;
+    height: 60px;
+  }
 }
