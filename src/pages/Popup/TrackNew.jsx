@@ -45,7 +45,7 @@ function TrackNew() {
 	}
 
 	const ShowValidationErrors = (validations) => {
-		let currentValidations = 'You have the follow errors: \n\r'
+		let currentValidations = 'You have the following errors: \n\r'
 		validations.forEach((validation) => {
 			currentValidations += `${validation.key}: ${validation.message}. \n\r`
 		})
@@ -69,9 +69,10 @@ function TrackNew() {
 				let result = await postVacancy(vacancyToCreate, token)
 				if (result.code === 201) {
 					activeAlert(
-						'The vacancy  was registered successfully',
+						'The vacant was registered successfully',
 						'success'
 					)
+          setTimeout(() => window.close(), 800);
 				}
 			} else {
 				ShowValidationErrors(validation)
