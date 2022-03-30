@@ -13,7 +13,14 @@
     }
   ],
   "options_page": "./options.html",
-  "permissions": ["activeTab", "scripting", "tabs"],
+  "permissions": ["activeTab", "scripting", "tabs", "identity"],
+  "web_accessible_resources": [
+    {
+      "resources": ["/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["opkgpihgofcfgohdolhmdcgkbifbkkih"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

@@ -36,28 +36,24 @@ function App() {
 		}
 	}
 
-	// useEffect(() => {
-	//   getToken();
-	// }, []);
+	useEffect(() => {
+	  getToken();
+	}, []);
 
-	// useEffect(() => {
-	//   setAuthenticated(isAuthenticated);
-	//   if (!authenticated) {
-	//     chrome.tabs.create({
-	//       url: `${window.location.origin}/options.html`,
-	//     })
-	//   }
-	// }, [isAuthenticated]);
 
 	useEffect(() => {
-		const jwt = localStorage.getItem('token')
-		setToken(jwt)
-		if (!jwt) {
-			chrome.tabs.create({
-				url: `${window.location.origin}/options.html`,
-			})
-		}
-	}, [token])
+	  setAuthenticated(isAuthenticated);
+	}, [isAuthenticated]);
+
+	// useEffect(() => {
+	// 	const jwt = localStorage.getItem('token')
+	// 	setToken(jwt)
+	// 	if (!jwt) {
+	// 		chrome.tabs.create({
+	// 			url: `${window.location.origin}/options.html`,
+	// 		})
+	// 	}
+	// }, [token])
 
 	return <ThemeProvider theme={customTheme}>{view.component}</ThemeProvider>
 }

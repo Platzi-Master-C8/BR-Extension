@@ -9,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { validateObj } from '../../utils/validations/inputValidation'
 import CustomizedSnackbars from '../../components/organisms/CustomSnackbar/CustomSnackbar'
 import { CircularProgress } from '@mui/material'
+import zIndex from '@mui/material/styles/zIndex'
 
 function TrackNew() {
 	const [inputValue, setInputValue] = useState({})
@@ -64,8 +65,8 @@ function TrackNew() {
 		try {
 			setLoading(true)
 			if (validation === 'ok') {
-				// const token = await getAccessTokenSilently()
-				const token = localStorage.getItem('token')
+				const token = await getAccessTokenSilently()
+				// const token = localStorage.getItem('token')
 				let result = await postVacancy(vacancyToCreate, token)
 				if (result.code === 201) {
 					activeAlert(
@@ -111,6 +112,9 @@ function TrackNew() {
 				status={open}
 				resetOpen={setOpen}
 			/>
+      <button style={{zIndex:10}} onClick={async () => {
+        console.log(await getAccessTokenSilently())
+      }}>Clickkkkkk</button>
 		</Layout>
 	)
 }
