@@ -13,7 +13,8 @@
     }
   ],
   "options_page": "./options.html",
-  "permissions": ["activeTab", "scripting", "tabs", "identity"],
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
       "resources": ["/*"],

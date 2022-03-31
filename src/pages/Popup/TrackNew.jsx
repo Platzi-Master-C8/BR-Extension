@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Layout } from '../../components/templates/Layout/Layout'
-import { ResponsiveNavBar } from '../../components/organisms/Navbar/Navbar'
+import { Navbar } from '../../components/molecules/Navbar/Navbar'
 import { StarRating } from '../../components/molecules/StarRating/StarRating'
 import { TrackForm } from '../../components/organisms/TrackForm/TrackForm'
 import { getUrl } from 'Helpers/pageScraping.js'
@@ -87,7 +87,7 @@ function TrackNew() {
 
 	return (
 		<Layout>
-			<ResponsiveNavBar title='New Tracking' />
+			<Navbar title="New Tracking" />
 			{!!loading ? (
 				<div className='TrackForm__loading-container'>
 					<CircularProgress
@@ -112,9 +112,6 @@ function TrackNew() {
 				status={open}
 				resetOpen={setOpen}
 			/>
-      <button style={{zIndex:10}} onClick={async () => {
-        console.log(await getAccessTokenSilently())
-      }}>Clickkkkkk</button>
 		</Layout>
 	)
 }
