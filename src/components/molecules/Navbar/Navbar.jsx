@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getDataBlob } from "../../../utils/imgToBase64";
 
 import "./Navbar.scss";
 import gethiredIcon from "Images/gethired_icon.svg";
@@ -8,22 +9,14 @@ function Navbar({ title }) {
   const { user } = useAuth0();
   const imgRef = useRef(null);
 
-  function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL;
-  }
-
   useEffect(() => {
     if (!!user?.picture) {
-      const base64 = getBase64Image(imgRef.current);
-      console.log(base64);
+      console.log(user.picture);
+      getDataBlob(user.picture).then(res =>
+        localStorage.setItem("userPhoto", res)
+      );
     }
-  }, [imgRef.current]);
+  }, [imgRef.current, user]);
 
   return (
     <header>
@@ -42,14 +35,14 @@ function Navbar({ title }) {
           }
           className="Navbar__picture-container"
         >
-          {user && (
-            <img
-              ref={imgRef}
-              src={user?.picture}
-              alt="profile picture"
-              id="superimagen"
-            />
-          )}
+          <img
+            ref={imgRef}
+            src={
+              user?.picture ? user.picture : localStorage.getItem("userPhoto")
+            }
+            alt="profile picture"
+            id="superimagen"
+          />
         </div>
       </div>
       <div className="divider"></div>
