@@ -1,15 +1,12 @@
-@use 'Styles/variables' as g;
+@use "Styles/variables" as g;
 
 .OptionsPage {
-  font-size: 2rem;
-  padding: 30px;
-  input {
-    padding-left: 20px;
-    width: 200px;
-    height: 80px;
-  }
-  button {
-    width: 200px;
-    height: 60px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  // background: #fff;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  z-index: -1;
 }
