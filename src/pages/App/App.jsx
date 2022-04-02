@@ -27,20 +27,13 @@ function App() {
   const [view, setView] = useState(routes[0]);
   const [token, setToken] = useState("");
 
-  // const getToken = async () => {
-  //   try {
-  //     const token = await getAccessTokenSilently();
-  //     setToken(token);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getToken();
-  // }, []);
-
   useEffect(() => {
+    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+      const activeTab = tabs[0];
+      const activeTabId = activeTab.id;
+      console.log("🚀 ~ activeTab.id", activeTab.id);
+      localStorage.setItem("activeTabId", activeTabId);
+    });
     if (!isAuthenticated && !isLoading) {
       console.log("adentrillo");
       chrome.tabs.create({

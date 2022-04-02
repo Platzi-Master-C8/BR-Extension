@@ -1,8 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { RedirectingAnimation } from "Molecules/RedirectingAnimation/RedirectingAnimation";
+import { LoggedIn } from "Atoms/LoggedIn/LoggedIn";
+
 import "./Options.scss";
 
 function Options() {
+  const [authenticated, setAuthenticated] = useState();
+
   const {
     loginWithRedirect,
     isAuthenticated,
@@ -12,20 +17,23 @@ function Options() {
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {
-      console.log("adentrooooo");
+      setAuthenticated(false);
       loginWithRedirect();
     }
-    console.log("🚀 ~ isLoading", isLoading);
-    console.log("🚀 ~ authenticated", isAuthenticated);
+    if (!!isAuthenticated && !isLoading) {
+      setAuthenticated(true);
+      const activeTab = parseInt(localStorage.getItem("activeTabId"));
+      setTimeout(() => {
+        window.close();
+        chrome.tabs.update(activeTab, { selected: true });
+      }, 300);
+    }
   }, [isAuthenticated, isLoading]);
-
-  const handleClick = async () => {
-    console.log(await getAccessTokenSilently());
-  };
 
   return (
     <div className="OptionsPage">
-      <h1>Logged in!</h1>
+      {!!authenticated && <LoggedIn message="Logged In" />}
+      {!isAuthenticated && !isLoading && <RedirectingAnimation />}
     </div>
   );
 }

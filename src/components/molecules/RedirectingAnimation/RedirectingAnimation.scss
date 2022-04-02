@@ -1,0 +1,433 @@
+.RedirectingAnimation {
+  width: 100vw;
+  height: 100vh;
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > span {
+      position: absolute;
+      top: -200px;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      animation: shine 2s alternate infinite;
+    }
+    img {
+      width: 400px;
+      animation: shake 0.4s linear infinite;
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 10%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 10%;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -3px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 3px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-1px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-2px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+// small lines
+
+.logoLines {
+  // border: 2px solid red;
+  width: 400px;
+  position: absolute;
+  top: 130px;
+  left: 30px;
+  // transform: rotate(-90deg);
+}
+
+.logoLines > span:nth-child(1),
+.logoLines > span:nth-child(2),
+.logoLines > span:nth-child(3),
+.logoLines > span:nth-child(4),
+.logoLines > span:nth-child(5),
+.logoLines > span:nth-child(6),
+.logoLines > span:nth-child(7),
+.logoLines > span:nth-child(8),
+.logoLines > span:nth-child(9),
+.logoLines > span:nth-child(10),
+.logoLines > span:nth-child(11),
+.logoLines > span:nth-child(12),
+.logoLines > span:nth-child(13),
+.logoLines > span:nth-child(14),
+.logoLines > span:nth-child(15),
+.logoLines > span:nth-child(16) {
+  height: 30px;
+  width: 1px;
+  background: rgb(92, 89, 89);
+  position: absolute;
+  animation: fazer1 0.2s linear infinite;
+}
+
+.logoLines > span:nth-child(1) {
+  left: 80px;
+  animation: fazer1 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(2) {
+  left: 30px;
+  animation: fazer2 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(3) {
+  left: 50px;
+  animation: fazer3 0.4s linear infinite;
+  animation-delay: -1s;
+}
+
+.logoLines > span:nth-child(4) {
+  left: 70px;
+  animation: fazer4 1s linear infinite;
+  animation-delay: -1s;
+}
+
+//inicio
+.logoLines > span:nth-child(5) {
+  left: 100px;
+  animation: fazer5 0.8s linear infinite;
+}
+
+.logoLines > span:nth-child(6) {
+  left: 120px;
+  animation: fazer6 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(7) {
+  left: 140px;
+  animation: fazer7 0.4s linear infinite;
+  animation-delay: -1s;
+}
+
+.logoLines > span:nth-child(8) {
+  left: 160px;
+  animation: fazer8 1s linear infinite;
+  animation-delay: -1s;
+}
+.logoLines > span:nth-child(9) {
+  left: 180px;
+  animation: fazer9 0.8s linear infinite;
+}
+
+.logoLines > span:nth-child(10) {
+  left: 200px;
+  animation: fazer10 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(11) {
+  left: 220px;
+  animation: fazer11 0.4s linear infinite;
+  animation-delay: -1s;
+}
+
+.logoLines > span:nth-child(12) {
+  left: 240px;
+  animation: fazer12 1s linear infinite;
+  animation-delay: -1s;
+}
+.logoLines > span:nth-child(13) {
+  left: 260px;
+  animation: fazer13 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(14) {
+  left: 280px;
+  animation: fazer14 0.4s linear infinite;
+}
+
+.logoLines > span:nth-child(15) {
+  left: 300px;
+  animation: fazer15 0.8s linear infinite;
+  animation-delay: -1s;
+}
+
+.logoLines > span:nth-child(16) {
+  left: 320px;
+  animation: fazer16 1s linear infinite;
+  animation-delay: -1s;
+}
+
+//fin
+
+@keyframes fazer1 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -80px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer2 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer3 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer4 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -150px;
+    opacity: 0;
+  }
+}
+
+//start anim
+@keyframes fazer5 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -80px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer6 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer7 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer8 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -150px;
+    opacity: 0;
+  }
+}
+@keyframes fazer9 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -80px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer10 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer11 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer12 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -150px;
+    opacity: 0;
+  }
+}
+@keyframes fazer13 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -80px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer14 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer15 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fazer16 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -150px;
+    opacity: 0;
+  }
+}
+
+//end anim
+
+// big background lines
+
+.backgroundLines {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  span {
+    position: absolute;
+    width: 2px;
+    height: 20%;
+    background: #000;
+
+    &:nth-child(1) {
+      left: 20%;
+      animation: bl 0.6s linear infinite;
+      animation-delay: -5s;
+    }
+
+    &:nth-child(2) {
+      left: 40%;
+      animation: bl2 0.8s linear infinite;
+      animation-delay: -1s;
+    }
+
+    &:nth-child(3) {
+      left: 60%;
+      animation: bl3 0.6s linear infinite;
+    }
+
+    &:nth-child(4) {
+      left: 80%;
+      animation: bl4 0.5s linear infinite;
+      animation-delay: -3s;
+    }
+  }
+}
+
+@keyframes bl {
+  0% {
+    bottom: 200%;
+  }
+  100% {
+    bottom: -200%;
+    opacity: 0;
+  }
+}
+@keyframes bl2 {
+  0% {
+    bottom: 200%;
+  }
+  100% {
+    bottom: -200%;
+    opacity: 0;
+  }
+}
+@keyframes bl3 {
+  0% {
+    bottom: 200%;
+  }
+  100% {
+    bottom: -100%;
+    opacity: 0;
+  }
+}
+@keyframes bl4 {
+  0% {
+    bottom: 200%;
+  }
+  100% {
+    bottom: -100%;
+    opacity: 0;
+  }
+}
